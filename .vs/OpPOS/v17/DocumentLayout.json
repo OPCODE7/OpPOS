@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "C:\\OPCODE\\OP_APPS\\OpPOS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\auth\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\auth\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\auth\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\auth\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\auth\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\auth\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\administration\\configuration\\frmserverconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\administration\\configuration\\frmserverconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\administration\\configuration\\frmserverconfig.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\administration\\configuration\\frmserverconfig.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\administration\\configuration\\frmserverconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\administration\\configuration\\frmserverconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,20 +38,96 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Login.Designer.cs",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Auth\\Login.Designer.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Views\\Auth\\Login.Designer.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Auth\\Login.Designer.cs",
+              "RelativeToolTip": "OpPOS\\Views\\Auth\\Login.Designer.cs",
+              "ViewState": "AQIAAJcAAAAAAAAAAAAvwKEAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T01:09:58.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FrmServerConfig.cs",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.cs",
+              "RelativeToolTip": "OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAvwBUAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T01:08:16.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmServerConfig.Designer.cs",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.Designer.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.Designer.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.Designer.cs",
+              "RelativeToolTip": "OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.Designer.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAArwNYAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T01:04:50.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmServerConfig.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.cs [Dise\u00F1o]",
+              "RelativeToolTip": "OpPOS\\Views\\Administration\\Configuration\\FrmServerConfig.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T01:04:44.084Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Program.cs",
               "RelativeDocumentMoniker": "OpPOS\\Program.cs",
               "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Program.cs",
               "RelativeToolTip": "OpPOS\\Program.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAcwBIAAAAeAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAuwBQAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T00:25:23.237Z",
+              "WhenOpened": "2025-06-23T00:47:52.891Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Auth\\Login.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Views\\Auth\\Login.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Auth\\Login.cs",
+              "RelativeToolTip": "OpPOS\\Views\\Auth\\Login.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAnwCMAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T00:47:06.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Auth\\Login.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Views\\Auth\\Login.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Auth\\Login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "OpPOS\\Views\\Auth\\Login.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T01:17:49.544Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

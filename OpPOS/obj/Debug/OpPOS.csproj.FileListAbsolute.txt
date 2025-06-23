@@ -1,0 +1,11 @@
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\bin\Debug\OpPOS.exe.config
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\bin\Debug\OpPOS.exe
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\bin\Debug\OpPOS.pdb
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.csproj.AssemblyReference.cache
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.Properties.Resources.resources
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.Views.Auth.Login.resources
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.csproj.GenerateResource.cache
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.csproj.CoreCompileInputs.cache
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.exe
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.pdb
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.Views.Administration.Configuration.FrmServerConfig.resources

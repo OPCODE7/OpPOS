@@ -46,8 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\App.cs" />
+    <Compile Include="Helpers\Hasher.cs" />
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\RegexPatterns.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Administration\Configuration\FrmServerConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Administration\Configuration\FrmServerConfig.Designer.cs">
+      <DependentUpon>FrmServerConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Auth\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Auth\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -57,6 +73,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Administration\Configuration\FrmServerConfig.resx">
+      <DependentUpon>FrmServerConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Auth\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -69,6 +91,43 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Images\" />
+    <Folder Include="Config\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\Employees\" />
+    <Folder Include="Views\Users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Icons\bill.png" />
+    <Content Include="Assets\Icons\calendar.png" />
+    <Content Include="Assets\Icons\cancel-white.png" />
+    <Content Include="Assets\Icons\cancel.png" />
+    <Content Include="Assets\Icons\clear-filter.png" />
+    <Content Include="Assets\Icons\close-24px.png" />
+    <Content Include="Assets\Icons\config-16px.png" />
+    <Content Include="Assets\Icons\delete.png" />
+    <Content Include="Assets\Icons\destroy.png" />
+    <Content Include="Assets\Icons\edit.png" />
+    <Content Include="Assets\Icons\eye.png" />
+    <Content Include="Assets\Icons\hidden.png" />
+    <Content Include="Assets\Icons\leave.png" />
+    <Content Include="Assets\Icons\logout.png" />
+    <Content Include="Assets\Icons\magnifying-glass.png" />
+    <Content Include="Assets\Icons\module.png" />
+    <Content Include="Assets\Icons\new.png" />
+    <Content Include="Assets\Icons\printing.png" />
+    <Content Include="Assets\Icons\recovery.png" />
+    <Content Include="Assets\Icons\recycle-bin.png" />
+    <Content Include="Assets\Icons\report.png" />
+    <Content Include="Assets\Icons\save.png" />
+    <Content Include="Assets\Icons\search-white.png" />
+    <Content Include="Assets\Icons\search.png" />
+    <Content Include="Assets\Icons\shutdown.png" />
+    <Content Include="Assets\Icons\user-normal.png" />
+    <Content Include="Assets\Icons\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
