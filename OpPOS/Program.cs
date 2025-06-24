@@ -18,7 +18,16 @@ namespace OpPOS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            try
+            {
+                Config.Boot boot = new Config.Boot();
+                boot.initApp();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fatal: " + ex.Message + "\n\n" + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.IO.File.WriteAllText("error_log.txt", ex.ToString());
+            }
         }
     }
 }

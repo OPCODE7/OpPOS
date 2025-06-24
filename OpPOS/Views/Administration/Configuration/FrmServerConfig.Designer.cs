@@ -40,12 +40,15 @@
             this.TxtUserDb = new System.Windows.Forms.TextBox();
             this.TxtServerName = new System.Windows.Forms.TextBox();
             this.PbxClose = new System.Windows.Forms.PictureBox();
+            this.PbxLoading = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.PbxLoading);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.TxtPwd);
             this.groupBox1.Controls.Add(this.BtnCancel);
@@ -99,6 +102,7 @@
             this.BtnCancel.TabIndex = 172;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // BtnSave
             // 
@@ -111,6 +115,7 @@
             this.BtnSave.TabIndex = 171;
             this.BtnSave.Text = "Guardar";
             this.BtnSave.UseVisualStyleBackColor = false;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // label2
             // 
@@ -195,6 +200,20 @@
             this.PbxClose.TabStop = false;
             this.PbxClose.Click += new System.EventHandler(this.PbxClose_Click);
             // 
+            // PbxLoading
+            // 
+            this.PbxLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PbxLoading.BackColor = System.Drawing.Color.Teal;
+            this.PbxLoading.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbxLoading.Image = ((System.Drawing.Image)(resources.GetObject("PbxLoading.Image")));
+            this.PbxLoading.Location = new System.Drawing.Point(178, 233);
+            this.PbxLoading.Name = "PbxLoading";
+            this.PbxLoading.Size = new System.Drawing.Size(30, 34);
+            this.PbxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbxLoading.TabIndex = 175;
+            this.PbxLoading.TabStop = false;
+            this.PbxLoading.Visible = false;
+            // 
             // FrmServerConfig
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -205,9 +224,11 @@
             this.Name = "FrmServerConfig";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmServerConfig";
+            this.Load += new System.EventHandler(this.FrmServerConfig_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -224,5 +245,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtPwd;
         private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.PictureBox PbxLoading;
     }
 }

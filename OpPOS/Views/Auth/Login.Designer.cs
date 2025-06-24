@@ -60,6 +60,7 @@
             this.BtnLogin.TabIndex = 3;
             this.BtnLogin.Text = "Ingresar";
             this.BtnLogin.UseVisualStyleBackColor = false;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // TxtUserName
             // 
@@ -88,6 +89,7 @@
             this.TxtPwd.Size = new System.Drawing.Size(330, 32);
             this.TxtPwd.TabIndex = 2;
             this.TxtPwd.UseSystemPasswordChar = true;
+            this.TxtPwd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtPwd_KeyUp);
             // 
             // label2
             // 
@@ -198,6 +200,8 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.PbxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxVisible)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxHidden)).EndInit();

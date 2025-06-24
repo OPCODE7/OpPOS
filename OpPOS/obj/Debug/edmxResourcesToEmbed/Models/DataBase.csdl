@@ -1,0 +1,875 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OpPOSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="APP_MODULES">
+    <Key>
+      <PropertyRef Name="MODULE_ID" />
+    </Key>
+    <Property Name="MODULE_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODULE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_APP_USR" FromRole="APP_MODULES" ToRole="USERS" />
+    <NavigationProperty Name="CORRELATIVES" Relationship="Self.FK_CORR_MODULE" FromRole="APP_MODULES" ToRole="CORRELATIVES" />
+    <NavigationProperty Name="LOGBOOK_APP" Relationship="Self.FK_MODULE_LOGS" FromRole="APP_MODULES" ToRole="LOGBOOK_APP" />
+    <NavigationProperty Name="USER_PERMISSIONS" Relationship="Self.FK_MODULE_PERMISSIONS" FromRole="APP_MODULES" ToRole="USER_PERMISSIONS" />
+  </EntityType>
+  <EntityType Name="CLIENTS">
+    <Key>
+      <PropertyRef Name="CLIENT_CODE" />
+    </Key>
+    <Property Name="CLIENT_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLIENT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTACT_PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACT_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_CLIENTS_USER" FromRole="CLIENTS" ToRole="USERS" />
+    <NavigationProperty Name="SALES" Relationship="Self.FK_SALES_CLIENT" FromRole="CLIENTS" ToRole="SALES" />
+  </EntityType>
+  <EntityType Name="COMPANY_DATA">
+    <Key>
+      <PropertyRef Name="COMPANY_ID" />
+    </Key>
+    <Property Name="COMPANY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="COMPANY_RTN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COMPANY_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COMPANY_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COMPANY_EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COMPANY_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LEGAL_FORM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_USER_COMP" FromRole="COMPANY_DATA" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="CORRELATIVES">
+    <Key>
+      <PropertyRef Name="CORRELATIVE_CODE" />
+    </Key>
+    <Property Name="CORRELATIVE_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CORRELATIVE_DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CORRELATIVE_COUNTER" Type="Int32" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="MODULE_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="APP_MODULES" Relationship="Self.FK_CORR_MODULE" FromRole="CORRELATIVES" ToRole="APP_MODULES" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_USER">
+    <Key>
+      <PropertyRef Name="EMPLOYE_USER_ID" />
+    </Key>
+    <Property Name="EMPLOYE_USER_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEE_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEES" Relationship="Self.FK_EMP_EMPUSR" FromRole="EMPLOYEE_USER" ToRole="EMPLOYEES" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_EMPUSR_USR" FromRole="EMPLOYEE_USER" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="EMPLOYEES">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_CODE" />
+    </Key>
+    <Property Name="EMPLOYEE_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEE_DNI" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEE_LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEE_EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEE_ADDRESS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE_USER" Relationship="Self.FK_EMP_EMPUSR" FromRole="EMPLOYEES" ToRole="EMPLOYEE_USER" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_EMP_USR" FromRole="EMPLOYEES" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="INVENTORY">
+    <Key>
+      <PropertyRef Name="COD_PRODUCT" />
+    </Key>
+    <Property Name="COD_PRODUCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STOCK_MIN" Type="Int32" Nullable="false" />
+    <Property Name="STOCK_CURRENT" Type="Int32" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_INVENTORY_PRODUCT" FromRole="INVENTORY" ToRole="PRODUCTS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_INVENTORY_USER" FromRole="INVENTORY" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="INVENTORY_ENTRIES">
+    <Key>
+      <PropertyRef Name="ENTRY_ID" />
+    </Key>
+    <Property Name="ENTRY_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SUPPLIER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ENTRY_DATE" Type="DateTime" Precision="3" />
+    <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SUPPLIERS" Relationship="Self.FK_ENTRIES_SUPPLIER" FromRole="INVENTORY_ENTRIES" ToRole="SUPPLIERS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_ENTRIES_USER" FromRole="INVENTORY_ENTRIES" ToRole="USERS" />
+    <NavigationProperty Name="INVENTORY_ENTRY_DETAILS" Relationship="Self.FK_ENTRY_DETAILS_ENTRY" FromRole="INVENTORY_ENTRIES" ToRole="INVENTORY_ENTRY_DETAILS" />
+  </EntityType>
+  <EntityType Name="INVENTORY_ENTRY_DETAILS">
+    <Key>
+      <PropertyRef Name="DETAIL_ID" />
+    </Key>
+    <Property Name="DETAIL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ENTRY_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COD_PRODUCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QUANTITY" Type="Int32" Nullable="false" />
+    <Property Name="UNIT_PRICE" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="INVENTORY_ENTRIES" Relationship="Self.FK_ENTRY_DETAILS_ENTRY" FromRole="INVENTORY_ENTRY_DETAILS" ToRole="INVENTORY_ENTRIES" />
+    <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_ENTRY_DETAILS_PRODUCT" FromRole="INVENTORY_ENTRY_DETAILS" ToRole="PRODUCTS" />
+  </EntityType>
+  <EntityType Name="INVENTORY_EXIT_DETAILS">
+    <Key>
+      <PropertyRef Name="DETAIL_ID" />
+    </Key>
+    <Property Name="DETAIL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EXIT_ID" Type="Int32" Nullable="false" />
+    <Property Name="COD_PRODUCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QUANTITY" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="INVENTORY_EXITS" Relationship="Self.FK_EXIT_DETAILS_EXIT" FromRole="INVENTORY_EXIT_DETAILS" ToRole="INVENTORY_EXITS" />
+    <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_EXIT_DETAILS_PRODUCT" FromRole="INVENTORY_EXIT_DETAILS" ToRole="PRODUCTS" />
+  </EntityType>
+  <EntityType Name="INVENTORY_EXITS">
+    <Key>
+      <PropertyRef Name="EXIT_ID" />
+    </Key>
+    <Property Name="EXIT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EXIT_REASON" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EXIT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="INVENTORY_EXIT_DETAILS" Relationship="Self.FK_EXIT_DETAILS_EXIT" FromRole="INVENTORY_EXITS" ToRole="INVENTORY_EXIT_DETAILS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_EXITS_USER" FromRole="INVENTORY_EXITS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="ISV_TYPES">
+    <Key>
+      <PropertyRef Name="COD_ISV" />
+    </Key>
+    <Property Name="COD_ISV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISV_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ISV_PERCENTAGE" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCT_ISV" FromRole="ISV_TYPES" ToRole="PRODUCTS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_USER_ISV" FromRole="ISV_TYPES" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="LOGBOOK_APP">
+    <Key>
+      <PropertyRef Name="LOG_ID" />
+    </Key>
+    <Property Name="LOG_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LOG_DESCRIPTION" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODULE_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACTION_TYPE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="APP_MODULES" Relationship="Self.FK_MODULE_LOGS" FromRole="LOGBOOK_APP" ToRole="APP_MODULES" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_USR_LOGS" FromRole="LOGBOOK_APP" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="PRODUCTS">
+    <Key>
+      <PropertyRef Name="COD_PRODUCT" />
+    </Key>
+    <Property Name="COD_PRODUCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRODUCT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRODUCT_PRICE" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COD_ISV" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="INVENTORY" Relationship="Self.FK_INVENTORY_PRODUCT" FromRole="PRODUCTS" ToRole="INVENTORY" />
+    <NavigationProperty Name="INVENTORY_ENTRY_DETAILS" Relationship="Self.FK_ENTRY_DETAILS_PRODUCT" FromRole="PRODUCTS" ToRole="INVENTORY_ENTRY_DETAILS" />
+    <NavigationProperty Name="INVENTORY_EXIT_DETAILS" Relationship="Self.FK_EXIT_DETAILS_PRODUCT" FromRole="PRODUCTS" ToRole="INVENTORY_EXIT_DETAILS" />
+    <NavigationProperty Name="ISV_TYPES" Relationship="Self.FK_PRODUCT_ISV" FromRole="PRODUCTS" ToRole="ISV_TYPES" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_PRODUCTS_USER" FromRole="PRODUCTS" ToRole="USERS" />
+    <NavigationProperty Name="SALE_DETAILS" Relationship="Self.FK_SALE_DETAILS_PRODUCT" FromRole="PRODUCTS" ToRole="SALE_DETAILS" />
+  </EntityType>
+  <EntityType Name="ROLE_PERMISSIONS">
+    <Key>
+      <PropertyRef Name="ROLE_PERMISSION_ID" />
+    </Key>
+    <Property Name="ROLE_PERMISSION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="ROLE_ID" Type="Int32" Nullable="false" />
+    <Property Name="PERMISSION_ID" Type="Int32" Nullable="false" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USER_PERMISSIONS" Relationship="Self.FK_ROLE_PERMISSION" FromRole="ROLE_PERMISSIONS" ToRole="USER_PERMISSIONS" />
+    <NavigationProperty Name="USER_ROLES" Relationship="Self.FK_ROLE_TYPE" FromRole="ROLE_PERMISSIONS" ToRole="USER_ROLES" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_USER_ROLE_PER" FromRole="ROLE_PERMISSIONS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="SALE_DETAILS">
+    <Key>
+      <PropertyRef Name="DETAIL_ID" />
+    </Key>
+    <Property Name="DETAIL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SALE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COD_PRODUCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QUANTITY" Type="Int32" Nullable="false" />
+    <Property Name="UNIT_PRICE" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_SALE_DETAILS_PRODUCT" FromRole="SALE_DETAILS" ToRole="PRODUCTS" />
+    <NavigationProperty Name="SALES" Relationship="Self.FK_SALE_DETAILS_SALE" FromRole="SALE_DETAILS" ToRole="SALES" />
+  </EntityType>
+  <EntityType Name="SALES">
+    <Key>
+      <PropertyRef Name="SALE_ID" />
+    </Key>
+    <Property Name="SALE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLIENT_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SALE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CLIENTS" Relationship="Self.FK_SALES_CLIENT" FromRole="SALES" ToRole="CLIENTS" />
+    <NavigationProperty Name="SALE_DETAILS" Relationship="Self.FK_SALE_DETAILS_SALE" FromRole="SALES" ToRole="SALE_DETAILS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_SALES_USER" FromRole="SALES" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="SUPPLIERS">
+    <Key>
+      <PropertyRef Name="SUPPLIER_CODE" />
+    </Key>
+    <Property Name="SUPPLIER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SUPPLIER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SUPPLIER_PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="INVENTORY_ENTRIES" Relationship="Self.FK_ENTRIES_SUPPLIER" FromRole="SUPPLIERS" ToRole="INVENTORY_ENTRIES" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_SUPPLIERS_USER" FromRole="SUPPLIERS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="SYSTEM_LICENSE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MACHINE_SIGNATURE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="USER_PERMISSIONS">
+    <Key>
+      <PropertyRef Name="PERMISSION_ID" />
+    </Key>
+    <Property Name="PERMISSION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PERMISSION_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACTION" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODULE_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="APP_MODULES" Relationship="Self.FK_MODULE_PERMISSIONS" FromRole="USER_PERMISSIONS" ToRole="APP_MODULES" />
+    <NavigationProperty Name="ROLE_PERMISSIONS" Relationship="Self.FK_ROLE_PERMISSION" FromRole="USER_PERMISSIONS" ToRole="ROLE_PERMISSIONS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_PERMISSION_USER" FromRole="USER_PERMISSIONS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="USER_ROLES">
+    <Key>
+      <PropertyRef Name="ROLE_ID" />
+    </Key>
+    <Property Name="ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ROLE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION_ROLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ROLE_PERMISSIONS" Relationship="Self.FK_ROLE_TYPE" FromRole="USER_ROLES" ToRole="ROLE_PERMISSIONS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK__USERS__ROLE_ID__42E1EEFE" FromRole="USER_ROLES" ToRole="USERS" />
+    <NavigationProperty Name="USERS1" Relationship="Self.FK_UROL" FromRole="USER_ROLES" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="USER_CODE" />
+    </Key>
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_NAME" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_PASSWORD" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
+    <Property Name="USER_STATE" Type="Boolean" Nullable="false" />
+    <Property Name="CREATED_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ROLE_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="APP_MODULES" Relationship="Self.FK_APP_USR" FromRole="USERS" ToRole="APP_MODULES" />
+    <NavigationProperty Name="CLIENTS" Relationship="Self.FK_CLIENTS_USER" FromRole="USERS" ToRole="CLIENTS" />
+    <NavigationProperty Name="COMPANY_DATA" Relationship="Self.FK_USER_COMP" FromRole="USERS" ToRole="COMPANY_DATA" />
+    <NavigationProperty Name="EMPLOYEE_USER" Relationship="Self.FK_EMPUSR_USR" FromRole="USERS" ToRole="EMPLOYEE_USER" />
+    <NavigationProperty Name="EMPLOYEES" Relationship="Self.FK_EMP_USR" FromRole="USERS" ToRole="EMPLOYEES" />
+    <NavigationProperty Name="INVENTORY" Relationship="Self.FK_INVENTORY_USER" FromRole="USERS" ToRole="INVENTORY" />
+    <NavigationProperty Name="INVENTORY_ENTRIES" Relationship="Self.FK_ENTRIES_USER" FromRole="USERS" ToRole="INVENTORY_ENTRIES" />
+    <NavigationProperty Name="INVENTORY_EXITS" Relationship="Self.FK_EXITS_USER" FromRole="USERS" ToRole="INVENTORY_EXITS" />
+    <NavigationProperty Name="ISV_TYPES" Relationship="Self.FK_USER_ISV" FromRole="USERS" ToRole="ISV_TYPES" />
+    <NavigationProperty Name="LOGBOOK_APP" Relationship="Self.FK_USR_LOGS" FromRole="USERS" ToRole="LOGBOOK_APP" />
+    <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCTS_USER" FromRole="USERS" ToRole="PRODUCTS" />
+    <NavigationProperty Name="ROLE_PERMISSIONS" Relationship="Self.FK_USER_ROLE_PER" FromRole="USERS" ToRole="ROLE_PERMISSIONS" />
+    <NavigationProperty Name="SALES" Relationship="Self.FK_SALES_USER" FromRole="USERS" ToRole="SALES" />
+    <NavigationProperty Name="SUPPLIERS" Relationship="Self.FK_SUPPLIERS_USER" FromRole="USERS" ToRole="SUPPLIERS" />
+    <NavigationProperty Name="USER_PERMISSIONS" Relationship="Self.FK_PERMISSION_USER" FromRole="USERS" ToRole="USER_PERMISSIONS" />
+    <NavigationProperty Name="USER_ROLES" Relationship="Self.FK__USERS__ROLE_ID__42E1EEFE" FromRole="USERS" ToRole="USER_ROLES" />
+    <NavigationProperty Name="USER_ROLES1" Relationship="Self.FK_UROL" FromRole="USERS" ToRole="USER_ROLES" />
+    <NavigationProperty Name="USERS1" Relationship="Self.FK_CREATE_BY" FromRole="USERS" ToRole="USERS1" />
+    <NavigationProperty Name="USERS2" Relationship="Self.FK_CREATE_BY" FromRole="USERS1" ToRole="USERS" />
+  </EntityType>
+  <Association Name="FK_APP_USR">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="APP_MODULES" Type="Self.APP_MODULES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="APP_MODULES">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CORR_MODULE">
+    <End Role="APP_MODULES" Type="Self.APP_MODULES" Multiplicity="1" />
+    <End Role="CORRELATIVES" Type="Self.CORRELATIVES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APP_MODULES">
+        <PropertyRef Name="MODULE_ID" />
+      </Principal>
+      <Dependent Role="CORRELATIVES">
+        <PropertyRef Name="MODULE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MODULE_LOGS">
+    <End Role="APP_MODULES" Type="Self.APP_MODULES" Multiplicity="1" />
+    <End Role="LOGBOOK_APP" Type="Self.LOGBOOK_APP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APP_MODULES">
+        <PropertyRef Name="MODULE_ID" />
+      </Principal>
+      <Dependent Role="LOGBOOK_APP">
+        <PropertyRef Name="MODULE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MODULE_PERMISSIONS">
+    <End Role="APP_MODULES" Type="Self.APP_MODULES" Multiplicity="1" />
+    <End Role="USER_PERMISSIONS" Type="Self.USER_PERMISSIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APP_MODULES">
+        <PropertyRef Name="MODULE_ID" />
+      </Principal>
+      <Dependent Role="USER_PERMISSIONS">
+        <PropertyRef Name="MODULE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTS_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="CLIENTS">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SALES_CLIENT">
+    <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="0..1" />
+    <End Role="SALES" Type="Self.SALES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTS">
+        <PropertyRef Name="CLIENT_CODE" />
+      </Principal>
+      <Dependent Role="SALES">
+        <PropertyRef Name="CLIENT_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_COMP">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="COMPANY_DATA" Type="Self.COMPANY_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="COMPANY_DATA">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMP_EMPUSR">
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="1" />
+    <End Role="EMPLOYEE_USER" Type="Self.EMPLOYEE_USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEES">
+        <PropertyRef Name="EMPLOYEE_CODE" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_USER">
+        <PropertyRef Name="EMPLOYEE_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPUSR_USR">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="EMPLOYEE_USER" Type="Self.EMPLOYEE_USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_USER">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMP_USR">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="EMPLOYEES">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INVENTORY_PRODUCT">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+    <End Role="INVENTORY" Type="Self.INVENTORY" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Principal>
+      <Dependent Role="INVENTORY">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INVENTORY_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="INVENTORY" Type="Self.INVENTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="INVENTORY">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTRIES_SUPPLIER">
+    <End Role="SUPPLIERS" Type="Self.SUPPLIERS" Multiplicity="0..1" />
+    <End Role="INVENTORY_ENTRIES" Type="Self.INVENTORY_ENTRIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUPPLIERS">
+        <PropertyRef Name="SUPPLIER_CODE" />
+      </Principal>
+      <Dependent Role="INVENTORY_ENTRIES">
+        <PropertyRef Name="SUPPLIER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTRIES_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="INVENTORY_ENTRIES" Type="Self.INVENTORY_ENTRIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="INVENTORY_ENTRIES">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTRY_DETAILS_ENTRY">
+    <End Role="INVENTORY_ENTRIES" Type="Self.INVENTORY_ENTRIES" Multiplicity="1" />
+    <End Role="INVENTORY_ENTRY_DETAILS" Type="Self.INVENTORY_ENTRY_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INVENTORY_ENTRIES">
+        <PropertyRef Name="ENTRY_ID" />
+      </Principal>
+      <Dependent Role="INVENTORY_ENTRY_DETAILS">
+        <PropertyRef Name="ENTRY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTRY_DETAILS_PRODUCT">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+    <End Role="INVENTORY_ENTRY_DETAILS" Type="Self.INVENTORY_ENTRY_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Principal>
+      <Dependent Role="INVENTORY_ENTRY_DETAILS">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXIT_DETAILS_EXIT">
+    <End Role="INVENTORY_EXITS" Type="Self.INVENTORY_EXITS" Multiplicity="1" />
+    <End Role="INVENTORY_EXIT_DETAILS" Type="Self.INVENTORY_EXIT_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INVENTORY_EXITS">
+        <PropertyRef Name="EXIT_ID" />
+      </Principal>
+      <Dependent Role="INVENTORY_EXIT_DETAILS">
+        <PropertyRef Name="EXIT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXIT_DETAILS_PRODUCT">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+    <End Role="INVENTORY_EXIT_DETAILS" Type="Self.INVENTORY_EXIT_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Principal>
+      <Dependent Role="INVENTORY_EXIT_DETAILS">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXITS_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="INVENTORY_EXITS" Type="Self.INVENTORY_EXITS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="INVENTORY_EXITS">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCT_ISV">
+    <End Role="ISV_TYPES" Type="Self.ISV_TYPES" Multiplicity="1" />
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ISV_TYPES">
+        <PropertyRef Name="COD_ISV" />
+      </Principal>
+      <Dependent Role="PRODUCTS">
+        <PropertyRef Name="COD_ISV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_ISV">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ISV_TYPES" Type="Self.ISV_TYPES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="ISV_TYPES">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_LOGS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="LOGBOOK_APP" Type="Self.LOGBOOK_APP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="LOGBOOK_APP">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUCTS_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="PRODUCTS">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SALE_DETAILS_PRODUCT">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+    <End Role="SALE_DETAILS" Type="Self.SALE_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Principal>
+      <Dependent Role="SALE_DETAILS">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROLE_PERMISSION">
+    <End Role="USER_PERMISSIONS" Type="Self.USER_PERMISSIONS" Multiplicity="1" />
+    <End Role="ROLE_PERMISSIONS" Type="Self.ROLE_PERMISSIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_PERMISSIONS">
+        <PropertyRef Name="PERMISSION_ID" />
+      </Principal>
+      <Dependent Role="ROLE_PERMISSIONS">
+        <PropertyRef Name="PERMISSION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROLE_TYPE">
+    <End Role="USER_ROLES" Type="Self.USER_ROLES" Multiplicity="1" />
+    <End Role="ROLE_PERMISSIONS" Type="Self.ROLE_PERMISSIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_ROLES">
+        <PropertyRef Name="ROLE_ID" />
+      </Principal>
+      <Dependent Role="ROLE_PERMISSIONS">
+        <PropertyRef Name="ROLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_ROLE_PER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="ROLE_PERMISSIONS" Type="Self.ROLE_PERMISSIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="ROLE_PERMISSIONS">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SALE_DETAILS_SALE">
+    <End Role="SALES" Type="Self.SALES" Multiplicity="1" />
+    <End Role="SALE_DETAILS" Type="Self.SALE_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALES">
+        <PropertyRef Name="SALE_ID" />
+      </Principal>
+      <Dependent Role="SALE_DETAILS">
+        <PropertyRef Name="SALE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SALES_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="SALES" Type="Self.SALES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="SALES">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUPPLIERS_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="SUPPLIERS" Type="Self.SUPPLIERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="SUPPLIERS">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERMISSION_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USER_PERMISSIONS" Type="Self.USER_PERMISSIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="USER_PERMISSIONS">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USERS__ROLE_ID__42E1EEFE">
+    <End Role="USER_ROLES" Type="Self.USER_ROLES" Multiplicity="1" />
+    <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_ROLES">
+        <PropertyRef Name="ROLE_ID" />
+      </Principal>
+      <Dependent Role="USERS">
+        <PropertyRef Name="ROLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UROL">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USER_ROLES" Type="Self.USER_ROLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="USER_ROLES">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREATE_BY">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USERS1" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="USERS1">
+        <PropertyRef Name="CREATED_BY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OpPOSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="APP_MODULES" EntityType="Self.APP_MODULES" />
+    <EntitySet Name="CLIENTS" EntityType="Self.CLIENTS" />
+    <EntitySet Name="COMPANY_DATA" EntityType="Self.COMPANY_DATA" />
+    <EntitySet Name="CORRELATIVES" EntityType="Self.CORRELATIVES" />
+    <EntitySet Name="EMPLOYEE_USER" EntityType="Self.EMPLOYEE_USER" />
+    <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" />
+    <EntitySet Name="INVENTORY" EntityType="Self.INVENTORY" />
+    <EntitySet Name="INVENTORY_ENTRIES" EntityType="Self.INVENTORY_ENTRIES" />
+    <EntitySet Name="INVENTORY_ENTRY_DETAILS" EntityType="Self.INVENTORY_ENTRY_DETAILS" />
+    <EntitySet Name="INVENTORY_EXIT_DETAILS" EntityType="Self.INVENTORY_EXIT_DETAILS" />
+    <EntitySet Name="INVENTORY_EXITS" EntityType="Self.INVENTORY_EXITS" />
+    <EntitySet Name="ISV_TYPES" EntityType="Self.ISV_TYPES" />
+    <EntitySet Name="LOGBOOK_APP" EntityType="Self.LOGBOOK_APP" />
+    <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" />
+    <EntitySet Name="ROLE_PERMISSIONS" EntityType="Self.ROLE_PERMISSIONS" />
+    <EntitySet Name="SALE_DETAILS" EntityType="Self.SALE_DETAILS" />
+    <EntitySet Name="SALES" EntityType="Self.SALES" />
+    <EntitySet Name="SUPPLIERS" EntityType="Self.SUPPLIERS" />
+    <EntitySet Name="SYSTEM_LICENSE" EntityType="Self.SYSTEM_LICENSE" />
+    <EntitySet Name="USER_PERMISSIONS" EntityType="Self.USER_PERMISSIONS" />
+    <EntitySet Name="USER_ROLES" EntityType="Self.USER_ROLES" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" />
+    <AssociationSet Name="FK_APP_USR" Association="Self.FK_APP_USR">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="APP_MODULES" EntitySet="APP_MODULES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CORR_MODULE" Association="Self.FK_CORR_MODULE">
+      <End Role="APP_MODULES" EntitySet="APP_MODULES" />
+      <End Role="CORRELATIVES" EntitySet="CORRELATIVES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MODULE_LOGS" Association="Self.FK_MODULE_LOGS">
+      <End Role="APP_MODULES" EntitySet="APP_MODULES" />
+      <End Role="LOGBOOK_APP" EntitySet="LOGBOOK_APP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MODULE_PERMISSIONS" Association="Self.FK_MODULE_PERMISSIONS">
+      <End Role="APP_MODULES" EntitySet="APP_MODULES" />
+      <End Role="USER_PERMISSIONS" EntitySet="USER_PERMISSIONS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTS_USER" Association="Self.FK_CLIENTS_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="CLIENTS" EntitySet="CLIENTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SALES_CLIENT" Association="Self.FK_SALES_CLIENT">
+      <End Role="CLIENTS" EntitySet="CLIENTS" />
+      <End Role="SALES" EntitySet="SALES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_COMP" Association="Self.FK_USER_COMP">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="COMPANY_DATA" EntitySet="COMPANY_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMP_EMPUSR" Association="Self.FK_EMP_EMPUSR">
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+      <End Role="EMPLOYEE_USER" EntitySet="EMPLOYEE_USER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPUSR_USR" Association="Self.FK_EMPUSR_USR">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="EMPLOYEE_USER" EntitySet="EMPLOYEE_USER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMP_USR" Association="Self.FK_EMP_USR">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INVENTORY_PRODUCT" Association="Self.FK_INVENTORY_PRODUCT">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="INVENTORY" EntitySet="INVENTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INVENTORY_USER" Association="Self.FK_INVENTORY_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="INVENTORY" EntitySet="INVENTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTRIES_SUPPLIER" Association="Self.FK_ENTRIES_SUPPLIER">
+      <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+      <End Role="INVENTORY_ENTRIES" EntitySet="INVENTORY_ENTRIES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTRIES_USER" Association="Self.FK_ENTRIES_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="INVENTORY_ENTRIES" EntitySet="INVENTORY_ENTRIES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTRY_DETAILS_ENTRY" Association="Self.FK_ENTRY_DETAILS_ENTRY">
+      <End Role="INVENTORY_ENTRIES" EntitySet="INVENTORY_ENTRIES" />
+      <End Role="INVENTORY_ENTRY_DETAILS" EntitySet="INVENTORY_ENTRY_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTRY_DETAILS_PRODUCT" Association="Self.FK_ENTRY_DETAILS_PRODUCT">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="INVENTORY_ENTRY_DETAILS" EntitySet="INVENTORY_ENTRY_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXIT_DETAILS_EXIT" Association="Self.FK_EXIT_DETAILS_EXIT">
+      <End Role="INVENTORY_EXITS" EntitySet="INVENTORY_EXITS" />
+      <End Role="INVENTORY_EXIT_DETAILS" EntitySet="INVENTORY_EXIT_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXIT_DETAILS_PRODUCT" Association="Self.FK_EXIT_DETAILS_PRODUCT">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="INVENTORY_EXIT_DETAILS" EntitySet="INVENTORY_EXIT_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXITS_USER" Association="Self.FK_EXITS_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="INVENTORY_EXITS" EntitySet="INVENTORY_EXITS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCT_ISV" Association="Self.FK_PRODUCT_ISV">
+      <End Role="ISV_TYPES" EntitySet="ISV_TYPES" />
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_ISV" Association="Self.FK_USER_ISV">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ISV_TYPES" EntitySet="ISV_TYPES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_LOGS" Association="Self.FK_USR_LOGS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="LOGBOOK_APP" EntitySet="LOGBOOK_APP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUCTS_USER" Association="Self.FK_PRODUCTS_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SALE_DETAILS_PRODUCT" Association="Self.FK_SALE_DETAILS_PRODUCT">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="SALE_DETAILS" EntitySet="SALE_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROLE_PERMISSION" Association="Self.FK_ROLE_PERMISSION">
+      <End Role="USER_PERMISSIONS" EntitySet="USER_PERMISSIONS" />
+      <End Role="ROLE_PERMISSIONS" EntitySet="ROLE_PERMISSIONS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROLE_TYPE" Association="Self.FK_ROLE_TYPE">
+      <End Role="USER_ROLES" EntitySet="USER_ROLES" />
+      <End Role="ROLE_PERMISSIONS" EntitySet="ROLE_PERMISSIONS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_ROLE_PER" Association="Self.FK_USER_ROLE_PER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="ROLE_PERMISSIONS" EntitySet="ROLE_PERMISSIONS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SALE_DETAILS_SALE" Association="Self.FK_SALE_DETAILS_SALE">
+      <End Role="SALES" EntitySet="SALES" />
+      <End Role="SALE_DETAILS" EntitySet="SALE_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SALES_USER" Association="Self.FK_SALES_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="SALES" EntitySet="SALES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUPPLIERS_USER" Association="Self.FK_SUPPLIERS_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERMISSION_USER" Association="Self.FK_PERMISSION_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USER_PERMISSIONS" EntitySet="USER_PERMISSIONS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USERS__ROLE_ID__42E1EEFE" Association="Self.FK__USERS__ROLE_ID__42E1EEFE">
+      <End Role="USER_ROLES" EntitySet="USER_ROLES" />
+      <End Role="USERS" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UROL" Association="Self.FK_UROL">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USER_ROLES" EntitySet="USER_ROLES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREATE_BY" Association="Self.FK_CREATE_BY">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USERS1" EntitySet="USERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -121,7 +121,7 @@
   <data name="PbxClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qQAAAKkBq7NRIgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADSSURBVEhL7VXb
+        qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADSSURBVEhL7VXb
         DYMwDGSldhRwhoCxkJij/Wg/QRRmaLcAVwfCSE6KFFf546T7sS93Do8ky07EgPP8ykQvJpqZiCM5s3M9
         PLSvYBH4C+PoXK99BUw0eQviOWlfQUBsovYVaCFX1Zub5uHVN6IHjTkABsAw3L0eakBdP3VP+wq0cGHX
         3RajcdxDQjVzALhNC0Pw167MAeA29cHk/wW07Tp5koCkjyj0QkM1U0DyzxQ/UcBAiF5ZfnRd+wq00Ert
@@ -131,7 +131,7 @@
   <data name="PbxVisible.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5AAAAOQBXaJ52AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIASURBVFhHxZa9
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIASURBVFhHxZa9
         SkNBEEaPhdYWsbEWYy0Iig9gYScKFj6CbWxE0CKd2PgUPosoPoSdNoo/oGDkC7thMjv3Xhs3xYEw883s
         7M7s3jAajZglhaE2haE2haE2haE2haE2haELYBFYB/aBk4R+y7bo9V0UhghgGTgHHgEZ2pBG2mWfJ6Iw
         uIW3gBvgK1ioC8Uodsvn7SwAWACugJ8gsbgHLoED4Bi4Bu4CnVAOaef9OmEBQD8t4BOJF+DIx6S4uVTM
@@ -146,7 +146,7 @@
   <data name="PbxHidden.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        6gAAAOoB+Ss1JgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIfSURBVFhH7Za7
+        5wAAAOcB8BtYtQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIfSURBVFhH7Za7
         T5RREMV/YgOBIJIgpYaK1mCjBZ0NPqKJDRYmFkJD5fvRUAkdEv8ETYyJsSBW2kBiImi0g44SCBix9FVo
         zubeZJzM91hjNlvsSU6xM3Pnnr3fufN90EEHbYYDwG3gqk+0CqeA34mzLjcAnAceASvABrAH7AObwFvg
         MXAZOOTW1kYP8L5AxAngq8mV8TvwEjhp1teG1K+ZZvMm14yIzDfAqOlRCfngoWviT+I1cB2YAM4CN9Ij

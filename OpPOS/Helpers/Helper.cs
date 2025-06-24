@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -247,7 +249,7 @@ namespace OpPOS.Helpers
             return year < 100 ? 2000 + year : year; // e.g. 25 → 2025
         }
 
-        public bool DoesDateMatch(DateTime dateTime, string searchFilter)
+        public bool DoesDateMatch(dynamic dateTime, string searchFilter)
         {
             if (string.IsNullOrWhiteSpace(searchFilter))
                 return true;
@@ -262,6 +264,34 @@ namespace OpPOS.Helpers
 
             // Comparamos si la búsqueda está contenida en cualquiera de las dos versiones
             return fullDateString.Contains(searchFilter.ToLower()) || compactDateString.Contains(searchFilter.ToLower());
+        }
+
+        public bool CheckFileExist(string path)
+        {
+            return File.Exists(path);
+        }
+
+        /// <summary>
+        /// Verifica si se puede establecer una conexión exitosa con la base de datos SQL Server utilizando la cadena de conexión proporcionada.
+        /// </summary>
+        /// <param name="connectionString">Cadena de conexión a evaluar.</param>
+        /// <returns>
+        /// <c>true</c> si la conexión es exitosa; de lo contrario, <c>false</c>.
+        /// </returns>
+        public bool TestConnection(string connectionString)
+        {
+            try
+            {
+                using (var conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }
