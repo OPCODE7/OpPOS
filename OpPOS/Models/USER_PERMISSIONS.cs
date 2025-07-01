@@ -23,8 +23,8 @@ namespace OpPOS.Models
         public int PERMISSION_ID { get; set; }
         public string PERMISSION_DESCRIPTION { get; set; }
         public string ACTION { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
-        public Nullable<bool> IS_DEL { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
+        public bool IS_DEL { get; set; }
         public string USER_CODE { get; set; }
         public string MODULE_ID { get; set; }
     

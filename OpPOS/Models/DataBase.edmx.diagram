@@ -4,41 +4,53 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="722c3876d98a48638e2a52766572b63d" Name="Diagram1" ZoomLevel="50">
-        <EntityTypeShape EntityType="OpPOSModel.APP_MODULES" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.CLIENTS" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.COMPANY_DATA" Width="1.5" PointX="5.25" PointY="23.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.CORRELATIVES" Width="1.5" PointX="7.5" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.EMPLOYEE_USER" Width="1.5" PointX="7.5" PointY="30.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.EMPLOYEES" Width="1.5" PointX="5.25" PointY="30" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.INVENTORY" Width="1.5" PointX="10.25" PointY="29.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.INVENTORY_ENTRIES" Width="1.5" PointX="7.5" PointY="35.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.INVENTORY_ENTRY_DETAILS" Width="1.5" PointX="12.75" PointY="34.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.INVENTORY_EXIT_DETAILS" Width="1.5" PointX="7.5" PointY="40.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.INVENTORY_EXITS" Width="1.5" PointX="5.25" PointY="40.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.ISV_TYPES" Width="1.5" PointX="5.25" PointY="43.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.LOGBOOK_APP" Width="1.5" PointX="7.5" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.PRODUCTS" Width="1.5" PointX="10.5" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.ROLE_PERMISSIONS" Width="1.5" PointX="8.25" PointY="26" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.SALE_DETAILS" Width="1.5" PointX="12.75" PointY="30.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.SALES" Width="1.5" PointX="10.5" PointY="26.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.SUPPLIERS" Width="1.5" PointX="5.25" PointY="46.625" IsExpanded="true" />
+      <Diagram DiagramId="da29c98457ce476fa97c02d5a0d3a6f6" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="OpPOSModel.APP_MODULES" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.BILL" Width="1.5" PointX="10.5" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.BILL_RANGE" Width="1.5" PointX="5.25" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.CLIENTS" Width="1.5" PointX="5.25" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.COMPANY_DATA" Width="1.5" PointX="5.25" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.CORRELATIVES" Width="1.5" PointX="7.5" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.EMPLOYEE_USER" Width="1.5" PointX="7.5" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.EMPLOYEES" Width="1.5" PointX="5.25" PointY="44.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.HORARY" Width="1.5" PointX="5.25" PointY="49.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.INVENTORY" Width="1.5" PointX="8.25" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.INVENTORY_CARDEX" Width="1.5" PointX="11.25" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.INVENTORY_ENTRIES" Width="1.5" PointX="7.5" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.INVENTORY_ENTRY_DETAILS" Width="1.5" PointX="9.75" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.INVENTORY_EXIT_DETAILS" Width="1.5" PointX="7.5" PointY="62.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.INVENTORY_EXITS" Width="1.5" PointX="5.25" PointY="62.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.ISV_TYPES" Width="1.5" PointX="5.25" PointY="65.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.JOB_POSITIONS" Width="1.5" PointX="5.25" PointY="68.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.LOGBOOK_APP" Width="1.5" PointX="7.5" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.PRODUCTS" Width="1.5" PointX="7.5" PointY="49.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.ROLE_PERMISSIONS" Width="1.5" PointX="8.25" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.SALE_DETAILS" Width="1.5" PointX="13.75" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.SALES" Width="1.5" PointX="10.5" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.SUPPLIERS" Width="1.5" PointX="5.25" PointY="71.875" IsExpanded="true" />
         <EntityTypeShape EntityType="OpPOSModel.SYSTEM_LICENSE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.USER_PERMISSIONS" Width="1.5" PointX="10.5" PointY="22.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.USER_ROLES" Width="1.5" PointX="0.75" PointY="23.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OpPOSModel.USERS" Width="1.5" PointX="3" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.USER_PERMISSIONS" Width="1.5" PointX="10.5" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.USER_ROLES" Width="1.5" PointX="0.75" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OpPOSModel.USERS" Width="1.5" PointX="3" PointY="35.625" IsExpanded="true" />
         <AssociationConnector Association="OpPOSModel.FK_APP_USR" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_CORR_MODULE" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_MODULE_LOGS" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_MODULE_PERMISSIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="OpPOSModel.FK_BILL_RANGE" ManuallyRouted="false" />
+        <AssociationConnector Association="OpPOSModel.FK_BILL_SALE" ManuallyRouted="false" />
+        <AssociationConnector Association="OpPOSModel.FK_BILL_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="OpPOSModel.FK_USR_BRANGE" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_CLIENTS_USER" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_SALES_CLIENT" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_USER_COMP" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_EMP_EMPUSR" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_EMPUSR_USR" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_EMP_USR" ManuallyRouted="false" />
+        <AssociationConnector Association="OpPOSModel.FK_USR_HOR" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_INVENTORY_PRODUCT" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_INVENTORY_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="OpPOSModel.FK_CARDEX_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="OpPOSModel.FK_CARDEX_USER" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_ENTRIES_SUPPLIER" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_ENTRIES_USER" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_ENTRY_DETAILS_ENTRY" ManuallyRouted="false" />
@@ -48,6 +60,7 @@
         <AssociationConnector Association="OpPOSModel.FK_EXITS_USER" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_PRODUCT_ISV" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_USER_ISV" ManuallyRouted="false" />
+        <AssociationConnector Association="OpPOSModel.FK_USR_JPS" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_USR_LOGS" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_PRODUCTS_USER" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_SALE_DETAILS_PRODUCT" ManuallyRouted="false" />
@@ -61,6 +74,12 @@
         <AssociationConnector Association="OpPOSModel.FK__USERS__ROLE_ID__42E1EEFE" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_UROL" ManuallyRouted="false" />
         <AssociationConnector Association="OpPOSModel.FK_CREATE_BY" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OpPOSModel.EMPLOYEE_SALARY" Width="1.5" PointX="13.5" PointY="35.875" />
+        <EntityTypeShape EntityType="OpPOSModel.SALARIES" Width="1.5" PointX="5.25" PointY="26" />
+        <AssociationConnector Association="OpPOSModel.FK_EMP_SAL" />
+        <AssociationConnector Association="OpPOSModel.FK_EMP_SAL_USR" />
+        <AssociationConnector Association="OpPOSModel.FK_SAL_EMP" />
+        <AssociationConnector Association="OpPOSModel.FK_USR_SAL" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

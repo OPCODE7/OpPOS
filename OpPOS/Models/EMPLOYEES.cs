@@ -18,6 +18,7 @@ namespace OpPOS.Models
         public EMPLOYEES()
         {
             this.EMPLOYEE_USER = new HashSet<EMPLOYEE_USER>();
+            this.EMPLOYEE_SALARY = new HashSet<EMPLOYEE_SALARY>();
         }
     
         public string EMPLOYEE_CODE { get; set; }
@@ -27,12 +28,16 @@ namespace OpPOS.Models
         public string EMPLOYEE_EMAIL { get; set; }
         public string EMPLOYEE_PHONE { get; set; }
         public string EMPLOYEE_ADDRESS { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
-        public Nullable<bool> IS_DEL { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
+        public bool IS_DEL { get; set; }
         public string USER_CODE { get; set; }
+        public string JOB_POSITION_CODE { get; set; }
+        public string HORARY_CODE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EMPLOYEE_USER> EMPLOYEE_USER { get; set; }
         public virtual USERS USERS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMPLOYEE_SALARY> EMPLOYEE_SALARY { get; set; }
     }
 }

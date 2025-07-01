@@ -15,7 +15,7 @@ namespace OpPOS.Models
     public partial class ROLE_PERMISSIONS
     {
         public int ROLE_PERMISSION_ID { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
         public int ROLE_ID { get; set; }
         public int PERMISSION_ID { get; set; }
         public string USER_CODE { get; set; }

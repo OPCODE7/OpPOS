@@ -22,7 +22,7 @@ namespace OpPOS.Models
     
         public int EXIT_ID { get; set; }
         public string EXIT_REASON { get; set; }
-        public Nullable<System.DateTime> EXIT_DATE { get; set; }
+        public System.DateTime EXIT_DATE { get; set; }
         public string USER_CODE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

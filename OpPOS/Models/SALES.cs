@@ -17,15 +17,18 @@ namespace OpPOS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SALES()
         {
+            this.BILL = new HashSet<BILL>();
             this.SALE_DETAILS = new HashSet<SALE_DETAILS>();
         }
     
         public string SALE_ID { get; set; }
         public string CLIENT_CODE { get; set; }
-        public Nullable<System.DateTime> SALE_DATE { get; set; }
+        public System.DateTime SALE_DATE { get; set; }
         public decimal TOTAL_AMOUNT { get; set; }
         public string USER_CODE { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BILL> BILL { get; set; }
         public virtual CLIENTS CLIENTS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SALE_DETAILS> SALE_DETAILS { get; set; }

@@ -13,7 +13,7 @@ namespace OpPOS.Controllers
     {
         Helpers.Helper h;
         Helpers.Hasher Hasher;
-        RolePermissionController rpc = new RolePermissionController();
+        RolePermissionsController rpc = new RolePermissionsController();
         public UserController()
         {
             Hasher = new Helpers.Hasher();
@@ -38,7 +38,7 @@ namespace OpPOS.Controllers
                         Config.User.roleName = db.USER_ROLES.Where(r => r.ROLE_ID == lst.ROLE_ID).Select(r => r.ROLE_NAME).FirstOrDefault();
 
 
-                        PermissionManager.UserPermissions= rpc.getPermissionsByRole(lst.ROLE_ID);
+                        PermissionManager.UserPermissions= rpc.GetPermissionsByRole(lst.ROLE_ID);
 
                         result = true;
                     }
@@ -57,7 +57,7 @@ namespace OpPOS.Controllers
             return result;
         }
 
-        public USERS getUser(string userId)
+        public USERS GetUser(string userId)
         {
 
             USERS user = new USERS();
@@ -76,7 +76,7 @@ namespace OpPOS.Controllers
             return user;
         }
 
-        public UserDTO getInfoUser(string id)
+        public UserDTO GetInfoUser(string id)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace OpPOS.Controllers
         }
 
 
-        public IEnumerable<UserDTO> getUsers(string searchFilter = "", bool isDel = false)
+        public IEnumerable<UserDTO> GetUsers(string searchFilter = "", bool isDel = false)
         {
             try
             {
@@ -151,7 +151,7 @@ namespace OpPOS.Controllers
         }
 
 
-        public int saveUser(USERS user)
+        public int SaveUser(USERS user)
         {
             int result = 0;
             try
@@ -170,7 +170,7 @@ namespace OpPOS.Controllers
             return result;
         }
 
-        public int updateUser(USERS user)
+        public int UpdateUser(USERS user)
         {
             int result = 0;
             try
@@ -189,7 +189,7 @@ namespace OpPOS.Controllers
             return result;
         }
 
-        public int deleteUser(string id)
+        public int DeleteUser(string id)
         {
             int result = 0;
             try

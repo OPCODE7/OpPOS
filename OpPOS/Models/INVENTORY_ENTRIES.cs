@@ -22,7 +22,7 @@ namespace OpPOS.Models
     
         public string ENTRY_ID { get; set; }
         public string SUPPLIER_CODE { get; set; }
-        public Nullable<System.DateTime> ENTRY_DATE { get; set; }
+        public System.DateTime ENTRY_DATE { get; set; }
         public decimal TOTAL_AMOUNT { get; set; }
         public string USER_CODE { get; set; }
     

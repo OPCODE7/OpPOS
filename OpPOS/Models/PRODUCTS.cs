@@ -17,6 +17,7 @@ namespace OpPOS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PRODUCTS()
         {
+            this.INVENTORY_CARDEX = new HashSet<INVENTORY_CARDEX>();
             this.INVENTORY_ENTRY_DETAILS = new HashSet<INVENTORY_ENTRY_DETAILS>();
             this.INVENTORY_EXIT_DETAILS = new HashSet<INVENTORY_EXIT_DETAILS>();
             this.SALE_DETAILS = new HashSet<SALE_DETAILS>();
@@ -30,6 +31,8 @@ namespace OpPOS.Models
         public int COD_ISV { get; set; }
     
         public virtual INVENTORY INVENTORY { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<INVENTORY_CARDEX> INVENTORY_CARDEX { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INVENTORY_ENTRY_DETAILS> INVENTORY_ENTRY_DETAILS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

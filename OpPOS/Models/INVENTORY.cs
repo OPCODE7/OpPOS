@@ -17,7 +17,7 @@ namespace OpPOS.Models
         public string COD_PRODUCT { get; set; }
         public int STOCK_MIN { get; set; }
         public int STOCK_CURRENT { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
         public string USER_CODE { get; set; }
     
         public virtual PRODUCTS PRODUCTS { get; set; }

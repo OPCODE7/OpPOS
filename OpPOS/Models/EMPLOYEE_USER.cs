@@ -14,9 +14,9 @@ namespace OpPOS.Models
     
     public partial class EMPLOYEE_USER
     {
-        public string EMPLOYE_USER_ID { get; set; }
+        public string EMPLOYEE_USER_ID { get; set; }
         public string EMPLOYEE_CODE { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
         public string USER_CODE { get; set; }
     
         public virtual EMPLOYEES EMPLOYEES { get; set; }

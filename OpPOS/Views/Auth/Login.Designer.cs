@@ -137,7 +137,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(184, 59);
             this.label3.TabIndex = 44;
-            this.label3.Text = "Parking System";
+            this.label3.Text = "OpPOS System";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4

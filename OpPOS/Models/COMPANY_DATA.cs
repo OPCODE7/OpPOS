@@ -21,8 +21,8 @@ namespace OpPOS.Models
         public string COMPANY_EMAIL { get; set; }
         public string COMPANY_PHONE { get; set; }
         public string LEGAL_FORM { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
-        public Nullable<bool> IS_DEL { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
+        public bool IS_DEL { get; set; }
         public string USER_CODE { get; set; }
     
         public virtual USERS USERS { get; set; }

@@ -16,9 +16,9 @@ namespace OpPOS.Models
     {
         public int CORRELATIVE_CODE { get; set; }
         public string CORRELATIVE_DESCRIPTION { get; set; }
-        public Nullable<int> CORRELATIVE_COUNTER { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
-        public Nullable<bool> IS_DEL { get; set; }
+        public int CORRELATIVE_COUNTER { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
+        public bool IS_DEL { get; set; }
         public string MODULE_ID { get; set; }
     
         public virtual APP_MODULES APP_MODULES { get; set; }

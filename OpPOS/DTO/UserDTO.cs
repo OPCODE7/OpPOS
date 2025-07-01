@@ -16,7 +16,7 @@ namespace OpPOS.DTO
         public string ROLE_NAME { get; set; }
         public string EMPLOYEE_CODE { get; set; }
         public string EMPLOYEE_NAME { get; set; }
-        public DateTime? INSERTED_AT { get; set; }
+        public DateTime INSERTED_AT { get; set; }
         public bool IS_DEL { get; set; }
     }
 }

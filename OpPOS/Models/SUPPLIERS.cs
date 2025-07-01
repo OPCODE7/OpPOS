@@ -24,7 +24,7 @@ namespace OpPOS.Models
         public string SUPPLIER_NAME { get; set; }
         public string SUPPLIER_PHONE { get; set; }
         public string SUPPLIER_EMAIL { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
         public string USER_CODE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

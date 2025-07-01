@@ -14,6 +14,46 @@
     <NavigationProperty Name="LOGBOOK_APP" Relationship="Self.FK_MODULE_LOGS" FromRole="APP_MODULES" ToRole="LOGBOOK_APP" />
     <NavigationProperty Name="USER_PERMISSIONS" Relationship="Self.FK_MODULE_PERMISSIONS" FromRole="APP_MODULES" ToRole="USER_PERMISSIONS" />
   </EntityType>
+  <EntityType Name="BILL">
+    <Key>
+      <PropertyRef Name="BILL_CODE" />
+    </Key>
+    <Property Name="BILL_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SALE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE_OF_ISSUE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BILL_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SUBTOTAL" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="DISCOUNT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ISV" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="TOTAL" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RTN" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="LETTERS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BILL_RANGE_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BILL_RANGE" Relationship="Self.FK_BILL_RANGE" FromRole="BILL" ToRole="BILL_RANGE" />
+    <NavigationProperty Name="SALES" Relationship="Self.FK_BILL_SALE" FromRole="BILL" ToRole="SALES" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_BILL_USER" FromRole="BILL" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="BILL_RANGE">
+    <Key>
+      <PropertyRef Name="BILL_RANGE_ID" />
+    </Key>
+    <Property Name="BILL_RANGE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ESTABLISHMENT" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMISSION_POINT" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOC_TYPE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INITIAL_RANGE" Type="Int32" Nullable="false" />
+    <Property Name="FINAL_RANGE" Type="Int32" Nullable="false" />
+    <Property Name="LAST_USED" Type="Int32" Nullable="false" />
+    <Property Name="BILL_RANGE_STATE" Type="Boolean" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="LIMIT_DATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CAI" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BILL" Relationship="Self.FK_BILL_RANGE" FromRole="BILL_RANGE" ToRole="BILL" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_USR_BRANGE" FromRole="BILL_RANGE" ToRole="USERS" />
+  </EntityType>
   <EntityType Name="CLIENTS">
     <Key>
       <PropertyRef Name="CLIENT_CODE" />
@@ -38,8 +78,8 @@
     <Property Name="COMPANY_EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="COMPANY_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="LEGAL_FORM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
-    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="USERS" Relationship="Self.FK_USER_COMP" FromRole="COMPANY_DATA" ToRole="USERS" />
   </EntityType>
@@ -49,19 +89,19 @@
     </Key>
     <Property Name="CORRELATIVE_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CORRELATIVE_DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CORRELATIVE_COUNTER" Type="Int32" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
-    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="CORRELATIVE_COUNTER" Type="Int32" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
     <Property Name="MODULE_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="APP_MODULES" Relationship="Self.FK_CORR_MODULE" FromRole="CORRELATIVES" ToRole="APP_MODULES" />
   </EntityType>
   <EntityType Name="EMPLOYEE_USER">
     <Key>
-      <PropertyRef Name="EMPLOYE_USER_ID" />
+      <PropertyRef Name="EMPLOYEE_USER_ID" />
     </Key>
-    <Property Name="EMPLOYE_USER_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEE_USER_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="EMPLOYEE_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="EMPLOYEES" Relationship="Self.FK_EMP_EMPUSR" FromRole="EMPLOYEE_USER" ToRole="EMPLOYEES" />
     <NavigationProperty Name="USERS" Relationship="Self.FK_EMPUSR_USR" FromRole="EMPLOYEE_USER" ToRole="USERS" />
@@ -77,11 +117,27 @@
     <Property Name="EMPLOYEE_EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="EMPLOYEE_PHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="EMPLOYEE_ADDRESS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
-    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JOB_POSITION_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HORARY_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="EMPLOYEE_USER" Relationship="Self.FK_EMP_EMPUSR" FromRole="EMPLOYEES" ToRole="EMPLOYEE_USER" />
     <NavigationProperty Name="USERS" Relationship="Self.FK_EMP_USR" FromRole="EMPLOYEES" ToRole="USERS" />
+    <NavigationProperty Name="EMPLOYEE_SALARY" Relationship="OpPOSModel.FK_EMP_SAL" FromRole="EMPLOYEES" ToRole="EMPLOYEE_SALARY" />
+  </EntityType>
+  <EntityType Name="HORARY">
+    <Key>
+      <PropertyRef Name="HORARY_CODE" />
+    </Key>
+    <Property Name="HORARY_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HORARY_DESCRIPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INITIAL_HOUR" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="FINAL_HOUR" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_USR_HOR" FromRole="HORARY" ToRole="USERS" />
   </EntityType>
   <EntityType Name="INVENTORY">
     <Key>
@@ -90,18 +146,34 @@
     <Property Name="COD_PRODUCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="STOCK_MIN" Type="Int32" Nullable="false" />
     <Property Name="STOCK_CURRENT" Type="Int32" Nullable="false" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_INVENTORY_PRODUCT" FromRole="INVENTORY" ToRole="PRODUCTS" />
     <NavigationProperty Name="USERS" Relationship="Self.FK_INVENTORY_USER" FromRole="INVENTORY" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="INVENTORY_CARDEX">
+    <Key>
+      <PropertyRef Name="CARDEX_ID" />
+    </Key>
+    <Property Name="CARDEX_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="COD_PRODUCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MOVEMENT_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MOVEMENT_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QUANTITY" Type="Int32" Nullable="false" />
+    <Property Name="STOCK_BEFORE" Type="Int32" Nullable="false" />
+    <Property Name="STOCK_AFTER" Type="Int32" Nullable="false" />
+    <Property Name="REFERENCE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_CARDEX_PRODUCT" FromRole="INVENTORY_CARDEX" ToRole="PRODUCTS" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_CARDEX_USER" FromRole="INVENTORY_CARDEX" ToRole="USERS" />
   </EntityType>
   <EntityType Name="INVENTORY_ENTRIES">
     <Key>
       <PropertyRef Name="ENTRY_ID" />
     </Key>
     <Property Name="ENTRY_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="SUPPLIER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="ENTRY_DATE" Type="DateTime" Precision="3" />
+    <Property Name="SUPPLIER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ENTRY_DATE" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="SUPPLIERS" Relationship="Self.FK_ENTRIES_SUPPLIER" FromRole="INVENTORY_ENTRIES" ToRole="SUPPLIERS" />
@@ -137,7 +209,7 @@
     </Key>
     <Property Name="EXIT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="EXIT_REASON" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="EXIT_DATE" Type="DateTime" Precision="3" />
+    <Property Name="EXIT_DATE" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="INVENTORY_EXIT_DETAILS" Relationship="Self.FK_EXIT_DETAILS_EXIT" FromRole="INVENTORY_EXITS" ToRole="INVENTORY_EXIT_DETAILS" />
     <NavigationProperty Name="USERS" Relationship="Self.FK_EXITS_USER" FromRole="INVENTORY_EXITS" ToRole="USERS" />
@@ -149,10 +221,21 @@
     <Property Name="COD_ISV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ISV_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ISV_PERCENTAGE" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCT_ISV" FromRole="ISV_TYPES" ToRole="PRODUCTS" />
     <NavigationProperty Name="USERS" Relationship="Self.FK_USER_ISV" FromRole="ISV_TYPES" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="JOB_POSITIONS">
+    <Key>
+      <PropertyRef Name="JOB_POSITION_CODE" />
+    </Key>
+    <Property Name="JOB_POSITION_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION_JOB_POSITION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
+    <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USERS" Relationship="Self.FK_USR_JPS" FromRole="JOB_POSITIONS" ToRole="USERS" />
   </EntityType>
   <EntityType Name="LOGBOOK_APP">
     <Key>
@@ -178,6 +261,7 @@
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="COD_ISV" Type="Int32" Nullable="false" />
     <NavigationProperty Name="INVENTORY" Relationship="Self.FK_INVENTORY_PRODUCT" FromRole="PRODUCTS" ToRole="INVENTORY" />
+    <NavigationProperty Name="INVENTORY_CARDEX" Relationship="Self.FK_CARDEX_PRODUCT" FromRole="PRODUCTS" ToRole="INVENTORY_CARDEX" />
     <NavigationProperty Name="INVENTORY_ENTRY_DETAILS" Relationship="Self.FK_ENTRY_DETAILS_PRODUCT" FromRole="PRODUCTS" ToRole="INVENTORY_ENTRY_DETAILS" />
     <NavigationProperty Name="INVENTORY_EXIT_DETAILS" Relationship="Self.FK_EXIT_DETAILS_PRODUCT" FromRole="PRODUCTS" ToRole="INVENTORY_EXIT_DETAILS" />
     <NavigationProperty Name="ISV_TYPES" Relationship="Self.FK_PRODUCT_ISV" FromRole="PRODUCTS" ToRole="ISV_TYPES" />
@@ -189,7 +273,7 @@
       <PropertyRef Name="ROLE_PERMISSION_ID" />
     </Key>
     <Property Name="ROLE_PERMISSION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ROLE_ID" Type="Int32" Nullable="false" />
     <Property Name="PERMISSION_ID" Type="Int32" Nullable="false" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
@@ -206,6 +290,7 @@
     <Property Name="COD_PRODUCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="QUANTITY" Type="Int32" Nullable="false" />
     <Property Name="UNIT_PRICE" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_SALE_DETAILS_PRODUCT" FromRole="SALE_DETAILS" ToRole="PRODUCTS" />
     <NavigationProperty Name="SALES" Relationship="Self.FK_SALE_DETAILS_SALE" FromRole="SALE_DETAILS" ToRole="SALES" />
   </EntityType>
@@ -214,10 +299,11 @@
       <PropertyRef Name="SALE_ID" />
     </Key>
     <Property Name="SALE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CLIENT_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="SALE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CLIENT_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SALE_DATE" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BILL" Relationship="Self.FK_BILL_SALE" FromRole="SALES" ToRole="BILL" />
     <NavigationProperty Name="CLIENTS" Relationship="Self.FK_SALES_CLIENT" FromRole="SALES" ToRole="CLIENTS" />
     <NavigationProperty Name="SALE_DETAILS" Relationship="Self.FK_SALE_DETAILS_SALE" FromRole="SALES" ToRole="SALE_DETAILS" />
     <NavigationProperty Name="USERS" Relationship="Self.FK_SALES_USER" FromRole="SALES" ToRole="USERS" />
@@ -228,9 +314,9 @@
     </Key>
     <Property Name="SUPPLIER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SUPPLIER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="SUPPLIER_PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SUPPLIER_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="INVENTORY_ENTRIES" Relationship="Self.FK_ENTRIES_SUPPLIER" FromRole="SUPPLIERS" ToRole="INVENTORY_ENTRIES" />
     <NavigationProperty Name="USERS" Relationship="Self.FK_SUPPLIERS_USER" FromRole="SUPPLIERS" ToRole="USERS" />
@@ -249,9 +335,9 @@
     </Key>
     <Property Name="PERMISSION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PERMISSION_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ACTION" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
-    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="ACTION" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="MODULE_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="APP_MODULES" Relationship="Self.FK_MODULE_PERMISSIONS" FromRole="USER_PERMISSIONS" ToRole="APP_MODULES" />
@@ -265,8 +351,8 @@
     <Property Name="ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ROLE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DESCRIPTION_ROLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
-    <Property Name="IS_DEL" Type="Boolean" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="ROLE_PERMISSIONS" Relationship="Self.FK_ROLE_TYPE" FromRole="USER_ROLES" ToRole="ROLE_PERMISSIONS" />
     <NavigationProperty Name="USERS" Relationship="Self.FK__USERS__ROLE_ID__42E1EEFE" FromRole="USER_ROLES" ToRole="USERS" />
@@ -279,20 +365,25 @@
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="USER_NAME" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="USER_PASSWORD" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="INSERTED_AT" Type="DateTime" Precision="3" />
-    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
-    <Property Name="USER_STATE" Type="Boolean" Nullable="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="USER_STATE" Type="Boolean" Nullable="false" annotation:StoreGeneratedPattern="None" />
     <Property Name="CREATED_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ROLE_ID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="APP_MODULES" Relationship="Self.FK_APP_USR" FromRole="USERS" ToRole="APP_MODULES" />
+    <NavigationProperty Name="BILL" Relationship="Self.FK_BILL_USER" FromRole="USERS" ToRole="BILL" />
+    <NavigationProperty Name="BILL_RANGE" Relationship="Self.FK_USR_BRANGE" FromRole="USERS" ToRole="BILL_RANGE" />
     <NavigationProperty Name="CLIENTS" Relationship="Self.FK_CLIENTS_USER" FromRole="USERS" ToRole="CLIENTS" />
     <NavigationProperty Name="COMPANY_DATA" Relationship="Self.FK_USER_COMP" FromRole="USERS" ToRole="COMPANY_DATA" />
     <NavigationProperty Name="EMPLOYEE_USER" Relationship="Self.FK_EMPUSR_USR" FromRole="USERS" ToRole="EMPLOYEE_USER" />
     <NavigationProperty Name="EMPLOYEES" Relationship="Self.FK_EMP_USR" FromRole="USERS" ToRole="EMPLOYEES" />
+    <NavigationProperty Name="HORARY" Relationship="Self.FK_USR_HOR" FromRole="USERS" ToRole="HORARY" />
     <NavigationProperty Name="INVENTORY" Relationship="Self.FK_INVENTORY_USER" FromRole="USERS" ToRole="INVENTORY" />
+    <NavigationProperty Name="INVENTORY_CARDEX" Relationship="Self.FK_CARDEX_USER" FromRole="USERS" ToRole="INVENTORY_CARDEX" />
     <NavigationProperty Name="INVENTORY_ENTRIES" Relationship="Self.FK_ENTRIES_USER" FromRole="USERS" ToRole="INVENTORY_ENTRIES" />
     <NavigationProperty Name="INVENTORY_EXITS" Relationship="Self.FK_EXITS_USER" FromRole="USERS" ToRole="INVENTORY_EXITS" />
     <NavigationProperty Name="ISV_TYPES" Relationship="Self.FK_USER_ISV" FromRole="USERS" ToRole="ISV_TYPES" />
+    <NavigationProperty Name="JOB_POSITIONS" Relationship="Self.FK_USR_JPS" FromRole="USERS" ToRole="JOB_POSITIONS" />
     <NavigationProperty Name="LOGBOOK_APP" Relationship="Self.FK_USR_LOGS" FromRole="USERS" ToRole="LOGBOOK_APP" />
     <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCTS_USER" FromRole="USERS" ToRole="PRODUCTS" />
     <NavigationProperty Name="ROLE_PERMISSIONS" Relationship="Self.FK_USER_ROLE_PER" FromRole="USERS" ToRole="ROLE_PERMISSIONS" />
@@ -303,6 +394,8 @@
     <NavigationProperty Name="USER_ROLES1" Relationship="Self.FK_UROL" FromRole="USERS" ToRole="USER_ROLES" />
     <NavigationProperty Name="USERS1" Relationship="Self.FK_CREATE_BY" FromRole="USERS" ToRole="USERS1" />
     <NavigationProperty Name="USERS2" Relationship="Self.FK_CREATE_BY" FromRole="USERS1" ToRole="USERS" />
+    <NavigationProperty Name="EMPLOYEE_SALARY" Relationship="OpPOSModel.FK_EMP_SAL_USR" FromRole="USERS" ToRole="EMPLOYEE_SALARY" />
+    <NavigationProperty Name="SALARIES" Relationship="OpPOSModel.FK_USR_SAL" FromRole="USERS" ToRole="SALARIES" />
   </EntityType>
   <Association Name="FK_APP_USR">
     <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
@@ -352,6 +445,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_BILL_RANGE">
+    <End Role="BILL_RANGE" Type="Self.BILL_RANGE" Multiplicity="1" />
+    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BILL_RANGE">
+        <PropertyRef Name="BILL_RANGE_ID" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="BILL_RANGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BILL_SALE">
+    <End Role="SALES" Type="Self.SALES" Multiplicity="1" />
+    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALES">
+        <PropertyRef Name="SALE_ID" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="SALE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BILL_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="BILL">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_BRANGE">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="BILL_RANGE" Type="Self.BILL_RANGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="BILL_RANGE">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_CLIENTS_USER">
     <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
     <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="*" />
@@ -365,7 +506,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SALES_CLIENT">
-    <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="0..1" />
+    <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="1" />
     <End Role="SALES" Type="Self.SALES" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CLIENTS">
@@ -424,6 +565,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_USR_HOR">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="HORARY" Type="Self.HORARY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="HORARY">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_INVENTORY_PRODUCT">
     <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
     <End Role="INVENTORY" Type="Self.INVENTORY" Multiplicity="0..1" />
@@ -448,8 +601,32 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_CARDEX_PRODUCT">
+    <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+    <End Role="INVENTORY_CARDEX" Type="Self.INVENTORY_CARDEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTS">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Principal>
+      <Dependent Role="INVENTORY_CARDEX">
+        <PropertyRef Name="COD_PRODUCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CARDEX_USER">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="INVENTORY_CARDEX" Type="Self.INVENTORY_CARDEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="INVENTORY_CARDEX">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ENTRIES_SUPPLIER">
-    <End Role="SUPPLIERS" Type="Self.SUPPLIERS" Multiplicity="0..1" />
+    <End Role="SUPPLIERS" Type="Self.SUPPLIERS" Multiplicity="1" />
     <End Role="INVENTORY_ENTRIES" Type="Self.INVENTORY_ENTRIES" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SUPPLIERS">
@@ -552,6 +729,18 @@
         <PropertyRef Name="USER_CODE" />
       </Principal>
       <Dependent Role="ISV_TYPES">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_JPS">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="JOB_POSITIONS" Type="Self.JOB_POSITIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="JOB_POSITIONS">
         <PropertyRef Name="USER_CODE" />
       </Dependent>
     </ReferentialConstraint>
@@ -714,17 +903,22 @@
   </Association>
   <EntityContainer Name="OpPOSEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="APP_MODULES" EntityType="Self.APP_MODULES" />
+    <EntitySet Name="BILL" EntityType="Self.BILL" />
+    <EntitySet Name="BILL_RANGE" EntityType="Self.BILL_RANGE" />
     <EntitySet Name="CLIENTS" EntityType="Self.CLIENTS" />
     <EntitySet Name="COMPANY_DATA" EntityType="Self.COMPANY_DATA" />
     <EntitySet Name="CORRELATIVES" EntityType="Self.CORRELATIVES" />
     <EntitySet Name="EMPLOYEE_USER" EntityType="Self.EMPLOYEE_USER" />
     <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" />
+    <EntitySet Name="HORARY" EntityType="Self.HORARY" />
     <EntitySet Name="INVENTORY" EntityType="Self.INVENTORY" />
+    <EntitySet Name="INVENTORY_CARDEX" EntityType="Self.INVENTORY_CARDEX" />
     <EntitySet Name="INVENTORY_ENTRIES" EntityType="Self.INVENTORY_ENTRIES" />
     <EntitySet Name="INVENTORY_ENTRY_DETAILS" EntityType="Self.INVENTORY_ENTRY_DETAILS" />
     <EntitySet Name="INVENTORY_EXIT_DETAILS" EntityType="Self.INVENTORY_EXIT_DETAILS" />
     <EntitySet Name="INVENTORY_EXITS" EntityType="Self.INVENTORY_EXITS" />
     <EntitySet Name="ISV_TYPES" EntityType="Self.ISV_TYPES" />
+    <EntitySet Name="JOB_POSITIONS" EntityType="Self.JOB_POSITIONS" />
     <EntitySet Name="LOGBOOK_APP" EntityType="Self.LOGBOOK_APP" />
     <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" />
     <EntitySet Name="ROLE_PERMISSIONS" EntityType="Self.ROLE_PERMISSIONS" />
@@ -751,6 +945,22 @@
       <End Role="APP_MODULES" EntitySet="APP_MODULES" />
       <End Role="USER_PERMISSIONS" EntitySet="USER_PERMISSIONS" />
     </AssociationSet>
+    <AssociationSet Name="FK_BILL_RANGE" Association="Self.FK_BILL_RANGE">
+      <End Role="BILL_RANGE" EntitySet="BILL_RANGE" />
+      <End Role="BILL" EntitySet="BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BILL_SALE" Association="Self.FK_BILL_SALE">
+      <End Role="SALES" EntitySet="SALES" />
+      <End Role="BILL" EntitySet="BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BILL_USER" Association="Self.FK_BILL_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="BILL" EntitySet="BILL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_BRANGE" Association="Self.FK_USR_BRANGE">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="BILL_RANGE" EntitySet="BILL_RANGE" />
+    </AssociationSet>
     <AssociationSet Name="FK_CLIENTS_USER" Association="Self.FK_CLIENTS_USER">
       <End Role="USERS" EntitySet="USERS" />
       <End Role="CLIENTS" EntitySet="CLIENTS" />
@@ -775,6 +985,10 @@
       <End Role="USERS" EntitySet="USERS" />
       <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
     </AssociationSet>
+    <AssociationSet Name="FK_USR_HOR" Association="Self.FK_USR_HOR">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="HORARY" EntitySet="HORARY" />
+    </AssociationSet>
     <AssociationSet Name="FK_INVENTORY_PRODUCT" Association="Self.FK_INVENTORY_PRODUCT">
       <End Role="PRODUCTS" EntitySet="PRODUCTS" />
       <End Role="INVENTORY" EntitySet="INVENTORY" />
@@ -782,6 +996,14 @@
     <AssociationSet Name="FK_INVENTORY_USER" Association="Self.FK_INVENTORY_USER">
       <End Role="USERS" EntitySet="USERS" />
       <End Role="INVENTORY" EntitySet="INVENTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARDEX_PRODUCT" Association="Self.FK_CARDEX_PRODUCT">
+      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+      <End Role="INVENTORY_CARDEX" EntitySet="INVENTORY_CARDEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CARDEX_USER" Association="Self.FK_CARDEX_USER">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="INVENTORY_CARDEX" EntitySet="INVENTORY_CARDEX" />
     </AssociationSet>
     <AssociationSet Name="FK_ENTRIES_SUPPLIER" Association="Self.FK_ENTRIES_SUPPLIER">
       <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
@@ -818,6 +1040,10 @@
     <AssociationSet Name="FK_USER_ISV" Association="Self.FK_USER_ISV">
       <End Role="USERS" EntitySet="USERS" />
       <End Role="ISV_TYPES" EntitySet="ISV_TYPES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_JPS" Association="Self.FK_USR_JPS">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="JOB_POSITIONS" EntitySet="JOB_POSITIONS" />
     </AssociationSet>
     <AssociationSet Name="FK_USR_LOGS" Association="Self.FK_USR_LOGS">
       <End Role="USERS" EntitySet="USERS" />
@@ -871,5 +1097,120 @@
       <End Role="USERS" EntitySet="USERS" />
       <End Role="USERS1" EntitySet="USERS" />
     </AssociationSet>
+    <FunctionImport Name="LogAction">
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+      <Parameter Name="ActionType" Mode="In" Type="String" />
+      <Parameter Name="LogDescription" Mode="In" Type="String" />
+      <Parameter Name="Module" Mode="In" Type="String" />
+      <Parameter Name="InsertedAt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="EMPLOYEE_SALARY" EntityType="OpPOSModel.EMPLOYEE_SALARY" />
+    <EntitySet Name="SALARIES" EntityType="OpPOSModel.SALARIES" />
+    <AssociationSet Name="FK_EMP_SAL" Association="OpPOSModel.FK_EMP_SAL">
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+      <End Role="EMPLOYEE_SALARY" EntitySet="EMPLOYEE_SALARY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMP_SAL_USR" Association="OpPOSModel.FK_EMP_SAL_USR">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="EMPLOYEE_SALARY" EntitySet="EMPLOYEE_SALARY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SAL_EMP" Association="OpPOSModel.FK_SAL_EMP">
+      <End Role="SALARIES" EntitySet="SALARIES" />
+      <End Role="EMPLOYEE_SALARY" EntitySet="EMPLOYEE_SALARY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_SAL" Association="OpPOSModel.FK_USR_SAL">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="SALARIES" EntitySet="SALARIES" />
+    </AssociationSet>
+    <FunctionImport Name="SP_GET_COMPANY_DATA" ReturnType="Collection(OpPOSModel.SP_GET_COMPANY_DATA_Result)" />
   </EntityContainer>
+  <EntityType Name="EMPLOYEE_SALARY">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_SALARY_CODE" />
+    </Key>
+    <Property Name="EMPLOYEE_SALARY_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SALARY_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="USER_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
+    <Property Name="SALARY_STATE" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEES" Relationship="OpPOSModel.FK_EMP_SAL" FromRole="EMPLOYEE_SALARY" ToRole="EMPLOYEES" />
+    <NavigationProperty Name="USERS" Relationship="OpPOSModel.FK_EMP_SAL_USR" FromRole="EMPLOYEE_SALARY" ToRole="USERS" />
+    <NavigationProperty Name="SALARIES" Relationship="OpPOSModel.FK_SAL_EMP" FromRole="EMPLOYEE_SALARY" ToRole="SALARIES" />
+  </EntityType>
+  <EntityType Name="SALARIES">
+    <Key>
+      <PropertyRef Name="SALARY_CODE" />
+    </Key>
+    <Property Name="SALARY_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BASE_SALARY" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="INCREASE" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="TOTAL_SALARY" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="INSERTED_AT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
+    <Property Name="USER_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEE_SALARY" Relationship="OpPOSModel.FK_SAL_EMP" FromRole="SALARIES" ToRole="EMPLOYEE_SALARY" />
+    <NavigationProperty Name="USERS" Relationship="OpPOSModel.FK_USR_SAL" FromRole="SALARIES" ToRole="USERS" />
+  </EntityType>
+  <Association Name="FK_EMP_SAL">
+    <End Type="OpPOSModel.EMPLOYEES" Role="EMPLOYEES" Multiplicity="1" />
+    <End Type="OpPOSModel.EMPLOYEE_SALARY" Role="EMPLOYEE_SALARY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEES">
+        <PropertyRef Name="EMPLOYEE_CODE" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_SALARY">
+        <PropertyRef Name="EMPLOYEE_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMP_SAL_USR">
+    <End Type="OpPOSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="OpPOSModel.EMPLOYEE_SALARY" Role="EMPLOYEE_SALARY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_SALARY">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SAL_EMP">
+    <End Type="OpPOSModel.SALARIES" Role="SALARIES" Multiplicity="1" />
+    <End Type="OpPOSModel.EMPLOYEE_SALARY" Role="EMPLOYEE_SALARY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALARIES">
+        <PropertyRef Name="SALARY_CODE" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_SALARY">
+        <PropertyRef Name="SALARY_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_SAL">
+    <End Type="OpPOSModel.USERS" Role="USERS" Multiplicity="1" />
+    <End Type="OpPOSModel.SALARIES" Role="SALARIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_CODE" />
+      </Principal>
+      <Dependent Role="SALARIES">
+        <PropertyRef Name="USER_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="SP_GET_COMPANY_DATA_Result">
+    <Property Type="Int32" Name="COMPANY_ID" Nullable="false" />
+    <Property Type="String" Name="COMPANY_RTN" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="COMPANY_NAME" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="COMPANY_ADDRESS" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="COMPANY_EMAIL" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="COMPANY_PHONE" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="LEGAL_FORM" Nullable="false" MaxLength="30" />
+    <Property Type="DateTime" Name="INSERTED_AT" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="IS_DEL" Nullable="false" />
+    <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="10" />
+  </ComplexType>
 </Schema>

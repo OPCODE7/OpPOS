@@ -1,14 +1,33 @@
-System.InvalidOperationException: El proveedor 'Microsoft.ACE.OLEDB.12.0' no está registrado en el equipo local.
-   en System.Data.OleDb.OleDbServicesWrapper.GetDataSource(OleDbConnectionString constr, DataSourceWrapper& datasrcWrapper)
-   en System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
-   en System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
-   en System.Data.ProviderBase.DbConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   en System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup, DbConnectionOptions userOptions)
-   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   en System.Data.ProviderBase.DbConnectionInternal.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
-   en System.Data.OleDb.OleDbConnection.Open()
-   en OpPOS.Config.AccessDBManagment.ReadFileData() en C:\OPCODE\OP_APPS\OpPOS\OpPOS\Config\AccessDBManagment.cs:línea 40
-   en OpPOS.Config.Boot.initApp() en C:\OPCODE\OP_APPS\OpPOS\OpPOS\Config\Boot.cs:línea 73
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: key
+   en System.Windows.Forms.CurrencyManager.Find(PropertyDescriptor property, Object key, Boolean keepIndex)
+   en System.Windows.Forms.ListControl.set_SelectedValue(Object value)
+   en OpPOS.Views.Users.FrmUsers.DgvUsers_CellDoubleClick(Object sender, DataGridViewCellEventArgs e) en C:\OPCODE\OP_APPS\OpPOS\OpPOS\Views\Users\FrmUsers.cs:línea 297
+   en System.Windows.Forms.DataGridView.OnCellDoubleClick(DataGridViewCellEventArgs e)
+   en System.Windows.Forms.DataGridView.OnDoubleClick(EventArgs e)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en OpPOS.Views.Auth.Login.BtnLogin_Click(Object sender, EventArgs e) en C:\OPCODE\OP_APPS\OpPOS\OpPOS\Views\Auth\Login.cs:línea 89
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.PerformClick()
+   en OpPOS.Views.Auth.Login.TxtPwd_KeyUp(Object sender, KeyEventArgs e) en C:\OPCODE\OP_APPS\OpPOS\OpPOS\Views\Auth\Login.cs:línea 71
+   en System.Windows.Forms.Control.OnKeyUp(KeyEventArgs e)
+   en System.Windows.Forms.TextBox.OnKeyUp(KeyEventArgs e)
+   en System.Windows.Forms.Control.ProcessKeyEventArgs(Message& m)
+   en System.Windows.Forms.Control.WmKeyChar(Message& m)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.TextBoxBase.WndProc(Message& m)
+   en System.Windows.Forms.TextBox.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en OpPOS.Config.Boot.initApp() en C:\OPCODE\OP_APPS\OpPOS\OpPOS\Config\Boot.cs:línea 119
    en OpPOS.Program.Main() en C:\OPCODE\OP_APPS\OpPOS\OpPOS\Program.cs:línea 24

@@ -19,6 +19,7 @@ namespace OpPOS.Models
         public string COD_PRODUCT { get; set; }
         public int QUANTITY { get; set; }
         public decimal UNIT_PRICE { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
     
         public virtual PRODUCTS PRODUCTS { get; set; }
         public virtual SALES SALES { get; set; }

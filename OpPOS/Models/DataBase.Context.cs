@@ -12,6 +12,8 @@ namespace OpPOS.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class OpPOSEntities : DbContext
     {
@@ -26,17 +28,22 @@ namespace OpPOS.Models
         }
     
         public virtual DbSet<APP_MODULES> APP_MODULES { get; set; }
+        public virtual DbSet<BILL> BILL { get; set; }
+        public virtual DbSet<BILL_RANGE> BILL_RANGE { get; set; }
         public virtual DbSet<CLIENTS> CLIENTS { get; set; }
         public virtual DbSet<COMPANY_DATA> COMPANY_DATA { get; set; }
         public virtual DbSet<CORRELATIVES> CORRELATIVES { get; set; }
         public virtual DbSet<EMPLOYEE_USER> EMPLOYEE_USER { get; set; }
         public virtual DbSet<EMPLOYEES> EMPLOYEES { get; set; }
+        public virtual DbSet<HORARY> HORARY { get; set; }
         public virtual DbSet<INVENTORY> INVENTORY { get; set; }
+        public virtual DbSet<INVENTORY_CARDEX> INVENTORY_CARDEX { get; set; }
         public virtual DbSet<INVENTORY_ENTRIES> INVENTORY_ENTRIES { get; set; }
         public virtual DbSet<INVENTORY_ENTRY_DETAILS> INVENTORY_ENTRY_DETAILS { get; set; }
         public virtual DbSet<INVENTORY_EXIT_DETAILS> INVENTORY_EXIT_DETAILS { get; set; }
         public virtual DbSet<INVENTORY_EXITS> INVENTORY_EXITS { get; set; }
         public virtual DbSet<ISV_TYPES> ISV_TYPES { get; set; }
+        public virtual DbSet<JOB_POSITIONS> JOB_POSITIONS { get; set; }
         public virtual DbSet<LOGBOOK_APP> LOGBOOK_APP { get; set; }
         public virtual DbSet<PRODUCTS> PRODUCTS { get; set; }
         public virtual DbSet<ROLE_PERMISSIONS> ROLE_PERMISSIONS { get; set; }
@@ -47,5 +54,37 @@ namespace OpPOS.Models
         public virtual DbSet<USER_PERMISSIONS> USER_PERMISSIONS { get; set; }
         public virtual DbSet<USER_ROLES> USER_ROLES { get; set; }
         public virtual DbSet<USERS> USERS { get; set; }
+        public virtual DbSet<EMPLOYEE_SALARY> EMPLOYEE_SALARY { get; set; }
+        public virtual DbSet<SALARIES> SALARIES { get; set; }
+    
+        public virtual int LogAction(string userCode, string actionType, string logDescription, string module, Nullable<System.DateTime> insertedAt)
+        {
+            var userCodeParameter = userCode != null ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(string));
+    
+            var actionTypeParameter = actionType != null ?
+                new ObjectParameter("ActionType", actionType) :
+                new ObjectParameter("ActionType", typeof(string));
+    
+            var logDescriptionParameter = logDescription != null ?
+                new ObjectParameter("LogDescription", logDescription) :
+                new ObjectParameter("LogDescription", typeof(string));
+    
+            var moduleParameter = module != null ?
+                new ObjectParameter("Module", module) :
+                new ObjectParameter("Module", typeof(string));
+    
+            var insertedAtParameter = insertedAt.HasValue ?
+                new ObjectParameter("InsertedAt", insertedAt) :
+                new ObjectParameter("InsertedAt", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LogAction", userCodeParameter, actionTypeParameter, logDescriptionParameter, moduleParameter, insertedAtParameter);
+        }
+    
+        public virtual ObjectResult<SP_GET_COMPANY_DATA_Result> SP_GET_COMPANY_DATA()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_COMPANY_DATA_Result>("SP_GET_COMPANY_DATA");
+        }
     }
 }

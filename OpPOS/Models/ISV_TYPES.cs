@@ -23,7 +23,7 @@ namespace OpPOS.Models
         public int COD_ISV { get; set; }
         public string ISV_DESCRIPTION { get; set; }
         public decimal ISV_PERCENTAGE { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
         public string USER_CODE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

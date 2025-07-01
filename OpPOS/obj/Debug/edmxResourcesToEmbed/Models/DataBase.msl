@@ -12,6 +12,43 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="BILL">
+      <EntityTypeMapping TypeName="OpPOSModel.BILL">
+        <MappingFragment StoreEntitySet="BILL">
+          <ScalarProperty Name="BILL_CODE" ColumnName="BILL_CODE" />
+          <ScalarProperty Name="SALE_ID" ColumnName="SALE_ID" />
+          <ScalarProperty Name="DATE_OF_ISSUE" ColumnName="DATE_OF_ISSUE" />
+          <ScalarProperty Name="BILL_NUMBER" ColumnName="BILL_NUMBER" />
+          <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+          <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+          <ScalarProperty Name="ISV" ColumnName="ISV" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="RTN" ColumnName="RTN" />
+          <ScalarProperty Name="LETTERS" ColumnName="LETTERS" />
+          <ScalarProperty Name="BILL_RANGE_ID" ColumnName="BILL_RANGE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BILL_RANGE">
+      <EntityTypeMapping TypeName="OpPOSModel.BILL_RANGE">
+        <MappingFragment StoreEntitySet="BILL_RANGE">
+          <ScalarProperty Name="BILL_RANGE_ID" ColumnName="BILL_RANGE_ID" />
+          <ScalarProperty Name="ESTABLISHMENT" ColumnName="ESTABLISHMENT" />
+          <ScalarProperty Name="EMISSION_POINT" ColumnName="EMISSION_POINT" />
+          <ScalarProperty Name="DOC_TYPE" ColumnName="DOC_TYPE" />
+          <ScalarProperty Name="INITIAL_RANGE" ColumnName="INITIAL_RANGE" />
+          <ScalarProperty Name="FINAL_RANGE" ColumnName="FINAL_RANGE" />
+          <ScalarProperty Name="LAST_USED" ColumnName="LAST_USED" />
+          <ScalarProperty Name="BILL_RANGE_STATE" ColumnName="BILL_RANGE_STATE" />
+          <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+          <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+          <ScalarProperty Name="LIMIT_DATE" ColumnName="LIMIT_DATE" />
+          <ScalarProperty Name="CAI" ColumnName="CAI" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CLIENTS">
       <EntityTypeMapping TypeName="OpPOSModel.CLIENTS">
         <MappingFragment StoreEntitySet="CLIENTS">
@@ -55,7 +92,7 @@
     <EntitySetMapping Name="EMPLOYEE_USER">
       <EntityTypeMapping TypeName="OpPOSModel.EMPLOYEE_USER">
         <MappingFragment StoreEntitySet="EMPLOYEE_USER">
-          <ScalarProperty Name="EMPLOYE_USER_ID" ColumnName="EMPLOYE_USER_ID" />
+          <ScalarProperty Name="EMPLOYEE_USER_ID" ColumnName="EMPLOYEE_USER_ID" />
           <ScalarProperty Name="EMPLOYEE_CODE" ColumnName="EMPLOYEE_CODE" />
           <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
           <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
@@ -75,6 +112,21 @@
           <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
           <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
           <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="JOB_POSITION_CODE" ColumnName="JOB_POSITION_CODE" />
+          <ScalarProperty Name="HORARY_CODE" ColumnName="HORARY_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HORARY">
+      <EntityTypeMapping TypeName="OpPOSModel.HORARY">
+        <MappingFragment StoreEntitySet="HORARY">
+          <ScalarProperty Name="HORARY_CODE" ColumnName="HORARY_CODE" />
+          <ScalarProperty Name="HORARY_DESCRIPTION" ColumnName="HORARY_DESCRIPTION" />
+          <ScalarProperty Name="INITIAL_HOUR" ColumnName="INITIAL_HOUR" />
+          <ScalarProperty Name="FINAL_HOUR" ColumnName="FINAL_HOUR" />
+          <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+          <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -85,6 +137,21 @@
           <ScalarProperty Name="STOCK_MIN" ColumnName="STOCK_MIN" />
           <ScalarProperty Name="STOCK_CURRENT" ColumnName="STOCK_CURRENT" />
           <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INVENTORY_CARDEX">
+      <EntityTypeMapping TypeName="OpPOSModel.INVENTORY_CARDEX">
+        <MappingFragment StoreEntitySet="INVENTORY_CARDEX">
+          <ScalarProperty Name="CARDEX_ID" ColumnName="CARDEX_ID" />
+          <ScalarProperty Name="COD_PRODUCT" ColumnName="COD_PRODUCT" />
+          <ScalarProperty Name="MOVEMENT_DATE" ColumnName="MOVEMENT_DATE" />
+          <ScalarProperty Name="MOVEMENT_TYPE" ColumnName="MOVEMENT_TYPE" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="STOCK_BEFORE" ColumnName="STOCK_BEFORE" />
+          <ScalarProperty Name="STOCK_AFTER" ColumnName="STOCK_AFTER" />
+          <ScalarProperty Name="REFERENCE" ColumnName="REFERENCE" />
           <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -142,6 +209,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="JOB_POSITIONS">
+      <EntityTypeMapping TypeName="OpPOSModel.JOB_POSITIONS">
+        <MappingFragment StoreEntitySet="JOB_POSITIONS">
+          <ScalarProperty Name="JOB_POSITION_CODE" ColumnName="JOB_POSITION_CODE" />
+          <ScalarProperty Name="DESCRIPTION_JOB_POSITION" ColumnName="DESCRIPTION_JOB_POSITION" />
+          <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+          <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="LOGBOOK_APP">
       <EntityTypeMapping TypeName="OpPOSModel.LOGBOOK_APP">
         <MappingFragment StoreEntitySet="LOGBOOK_APP">
@@ -185,6 +263,7 @@
           <ScalarProperty Name="COD_PRODUCT" ColumnName="COD_PRODUCT" />
           <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
           <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
+          <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -259,5 +338,48 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="LogAction" FunctionName="OpPOSModel.Store.LogAction" />
+    <EntitySetMapping Name="EMPLOYEE_SALARY">
+      <EntityTypeMapping TypeName="OpPOSModel.EMPLOYEE_SALARY">
+        <MappingFragment StoreEntitySet="EMPLOYEE_SALARY">
+          <ScalarProperty Name="SALARY_STATE" ColumnName="SALARY_STATE" />
+          <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+          <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="SALARY_CODE" ColumnName="SALARY_CODE" />
+          <ScalarProperty Name="EMPLOYEE_CODE" ColumnName="EMPLOYEE_CODE" />
+          <ScalarProperty Name="EMPLOYEE_SALARY_CODE" ColumnName="EMPLOYEE_SALARY_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALARIES">
+      <EntityTypeMapping TypeName="OpPOSModel.SALARIES">
+        <MappingFragment StoreEntitySet="SALARIES">
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+          <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+          <ScalarProperty Name="TOTAL_SALARY" ColumnName="TOTAL_SALARY" />
+          <ScalarProperty Name="INCREASE" ColumnName="INCREASE" />
+          <ScalarProperty Name="BASE_SALARY" ColumnName="BASE_SALARY" />
+          <ScalarProperty Name="SALARY_CODE" ColumnName="SALARY_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GET_COMPANY_DATA" FunctionName="OpPOSModel.Store.SP_GET_COMPANY_DATA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OpPOSModel.SP_GET_COMPANY_DATA_Result">
+          <ScalarProperty Name="COMPANY_ID" ColumnName="COMPANY_ID" />
+          <ScalarProperty Name="COMPANY_RTN" ColumnName="COMPANY_RTN" />
+          <ScalarProperty Name="COMPANY_NAME" ColumnName="COMPANY_NAME" />
+          <ScalarProperty Name="COMPANY_ADDRESS" ColumnName="COMPANY_ADDRESS" />
+          <ScalarProperty Name="COMPANY_EMAIL" ColumnName="COMPANY_EMAIL" />
+          <ScalarProperty Name="COMPANY_PHONE" ColumnName="COMPANY_PHONE" />
+          <ScalarProperty Name="LEGAL_FORM" ColumnName="LEGAL_FORM" />
+          <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+          <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

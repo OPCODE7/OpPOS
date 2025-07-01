@@ -32,18 +32,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.PnlAdminSideBar = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnEntries = new System.Windows.Forms.Button();
+            this.BtnInventoryEntries = new System.Windows.Forms.Button();
+            this.BtnInventoryExits = new System.Windows.Forms.Button();
+            this.BtnSales = new System.Windows.Forms.Button();
             this.TstPrincipal = new System.Windows.Forms.ToolStrip();
-            this.SprMiembros = new System.Windows.Forms.ToolStripSeparator();
             this.BtnReports = new System.Windows.Forms.ToolStripDropDownButton();
             this.BtnRptBills = new System.Windows.Forms.ToolStripMenuItem();
             this.RptFinancialIncomes = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnCheckInReport = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnCheckOutReport = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.BtnCheckIn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.BtnCheckout = new System.Windows.Forms.ToolStripButton();
+            this.BtnManageEmployees = new System.Windows.Forms.ToolStripDropDownButton();
+            this.BtnEmployees = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnHoraries = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnSalaries = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnJobPositions = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.BtnManageUsers = new System.Windows.Forms.ToolStripDropDownButton();
             this.BtnRoles = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +58,10 @@
             this.BtnCompanyData = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnBillRanges = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnConfigServer = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BtnLogs = new System.Windows.Forms.ToolStripDropDownButton();
+            this.BtnLogBook = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnCardex = new System.Windows.Forms.ToolStripMenuItem();
             this.StPrincipal = new System.Windows.Forms.StatusStrip();
             this.LblUserLogged = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -76,7 +83,9 @@
             // 
             this.PnlAdminSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
             this.PnlAdminSideBar.Controls.Add(this.pictureBox1);
-            this.PnlAdminSideBar.Controls.Add(this.BtnEntries);
+            this.PnlAdminSideBar.Controls.Add(this.BtnInventoryEntries);
+            this.PnlAdminSideBar.Controls.Add(this.BtnInventoryExits);
+            this.PnlAdminSideBar.Controls.Add(this.BtnSales);
             this.PnlAdminSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlAdminSideBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.PnlAdminSideBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -95,18 +104,50 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // BtnEntries
+            // BtnInventoryEntries
             // 
-            this.BtnEntries.BackColor = System.Drawing.Color.Teal;
-            this.BtnEntries.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEntries.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnEntries.Location = new System.Drawing.Point(3, 101);
-            this.BtnEntries.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.BtnEntries.Name = "BtnEntries";
-            this.BtnEntries.Size = new System.Drawing.Size(211, 54);
-            this.BtnEntries.TabIndex = 2;
-            this.BtnEntries.Text = "Entradas";
-            this.BtnEntries.UseVisualStyleBackColor = false;
+            this.BtnInventoryEntries.BackColor = System.Drawing.Color.Teal;
+            this.BtnInventoryEntries.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnInventoryEntries.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnInventoryEntries.Image = ((System.Drawing.Image)(resources.GetObject("BtnInventoryEntries.Image")));
+            this.BtnInventoryEntries.Location = new System.Drawing.Point(3, 101);
+            this.BtnInventoryEntries.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.BtnInventoryEntries.Name = "BtnInventoryEntries";
+            this.BtnInventoryEntries.Size = new System.Drawing.Size(211, 54);
+            this.BtnInventoryEntries.TabIndex = 2;
+            this.BtnInventoryEntries.Text = "Entradas";
+            this.BtnInventoryEntries.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnInventoryEntries.UseVisualStyleBackColor = false;
+            // 
+            // BtnInventoryExits
+            // 
+            this.BtnInventoryExits.BackColor = System.Drawing.Color.Teal;
+            this.BtnInventoryExits.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnInventoryExits.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnInventoryExits.Image = ((System.Drawing.Image)(resources.GetObject("BtnInventoryExits.Image")));
+            this.BtnInventoryExits.Location = new System.Drawing.Point(3, 168);
+            this.BtnInventoryExits.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.BtnInventoryExits.Name = "BtnInventoryExits";
+            this.BtnInventoryExits.Size = new System.Drawing.Size(211, 54);
+            this.BtnInventoryExits.TabIndex = 8;
+            this.BtnInventoryExits.Text = "Salidas";
+            this.BtnInventoryExits.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnInventoryExits.UseVisualStyleBackColor = false;
+            // 
+            // BtnSales
+            // 
+            this.BtnSales.BackColor = System.Drawing.Color.Teal;
+            this.BtnSales.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSales.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnSales.Image = ((System.Drawing.Image)(resources.GetObject("BtnSales.Image")));
+            this.BtnSales.Location = new System.Drawing.Point(3, 235);
+            this.BtnSales.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.BtnSales.Name = "BtnSales";
+            this.BtnSales.Size = new System.Drawing.Size(211, 54);
+            this.BtnSales.TabIndex = 9;
+            this.BtnSales.Text = "Ventas";
+            this.BtnSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSales.UseVisualStyleBackColor = false;
             // 
             // TstPrincipal
             // 
@@ -114,26 +155,20 @@
             this.TstPrincipal.BackColor = System.Drawing.Color.Teal;
             this.TstPrincipal.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.TstPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SprMiembros,
             this.BtnReports,
-            this.toolStripSeparator1,
-            this.BtnCheckIn,
             this.toolStripSeparator5,
-            this.BtnCheckout,
+            this.BtnManageEmployees,
             this.toolStripSeparator3,
             this.BtnManageUsers,
             this.toolStripSeparator4,
-            this.BtnConfig});
+            this.BtnConfig,
+            this.toolStripSeparator1,
+            this.BtnLogs});
             this.TstPrincipal.Location = new System.Drawing.Point(226, 0);
             this.TstPrincipal.Name = "TstPrincipal";
             this.TstPrincipal.Size = new System.Drawing.Size(1024, 41);
             this.TstPrincipal.TabIndex = 40;
             this.TstPrincipal.Text = "toolStrip1";
-            // 
-            // SprMiembros
-            // 
-            this.SprMiembros.Name = "SprMiembros";
-            this.SprMiembros.Size = new System.Drawing.Size(6, 41);
             // 
             // BtnReports
             // 
@@ -144,10 +179,13 @@
             this.BtnCheckOutReport});
             this.BtnReports.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnReports.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnReports.Image = ((System.Drawing.Image)(resources.GetObject("BtnReports.Image")));
             this.BtnReports.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BtnReports.Name = "BtnReports";
-            this.BtnReports.Size = new System.Drawing.Size(105, 36);
+            this.BtnReports.Size = new System.Drawing.Size(129, 36);
             this.BtnReports.Text = "Reportes";
+            this.BtnReports.DropDownClosed += new System.EventHandler(this.BtnReports_DropDownClosed);
+            this.BtnReports.DropDownOpened += new System.EventHandler(this.BtnReports_DropDownOpened);
             // 
             // BtnRptBills
             // 
@@ -181,33 +219,63 @@
             this.BtnCheckOutReport.Size = new System.Drawing.Size(290, 34);
             this.BtnCheckOutReport.Text = "Salidas";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
-            // 
-            // BtnCheckIn
-            // 
-            this.BtnCheckIn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCheckIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnCheckIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnCheckIn.Name = "BtnCheckIn";
-            this.BtnCheckIn.Size = new System.Drawing.Size(97, 36);
-            this.BtnCheckIn.Text = "Check-In";
-            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 41);
             // 
-            // BtnCheckout
+            // BtnManageEmployees
             // 
-            this.BtnCheckout.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCheckout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnCheckout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnCheckout.Name = "BtnCheckout";
-            this.BtnCheckout.Size = new System.Drawing.Size(112, 36);
-            this.BtnCheckout.Text = "Check-Out";
+            this.BtnManageEmployees.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BtnEmployees,
+            this.BtnHoraries,
+            this.BtnSalaries,
+            this.BtnJobPositions});
+            this.BtnManageEmployees.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnManageEmployees.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnManageEmployees.Image = ((System.Drawing.Image)(resources.GetObject("BtnManageEmployees.Image")));
+            this.BtnManageEmployees.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnManageEmployees.Name = "BtnManageEmployees";
+            this.BtnManageEmployees.Size = new System.Drawing.Size(251, 36);
+            this.BtnManageEmployees.Text = "Gestión de Empleados";
+            this.BtnManageEmployees.DropDownClosed += new System.EventHandler(this.BtnManageEmployees_DropDownClosed);
+            this.BtnManageEmployees.DropDownOpened += new System.EventHandler(this.BtnManageEmployees_DropDownOpened);
+            // 
+            // BtnEmployees
+            // 
+            this.BtnEmployees.BackColor = System.Drawing.Color.Teal;
+            this.BtnEmployees.ForeColor = System.Drawing.Color.White;
+            this.BtnEmployees.Name = "BtnEmployees";
+            this.BtnEmployees.Size = new System.Drawing.Size(270, 34);
+            this.BtnEmployees.Text = "Empleados";
+            this.BtnEmployees.Click += new System.EventHandler(this.BtnEmployees_Click);
+            // 
+            // BtnHoraries
+            // 
+            this.BtnHoraries.BackColor = System.Drawing.Color.Teal;
+            this.BtnHoraries.ForeColor = System.Drawing.Color.White;
+            this.BtnHoraries.Name = "BtnHoraries";
+            this.BtnHoraries.Size = new System.Drawing.Size(270, 34);
+            this.BtnHoraries.Text = "Horarios";
+            this.BtnHoraries.Click += new System.EventHandler(this.BtnHoraries_Click);
+            // 
+            // BtnSalaries
+            // 
+            this.BtnSalaries.BackColor = System.Drawing.Color.Teal;
+            this.BtnSalaries.ForeColor = System.Drawing.Color.White;
+            this.BtnSalaries.Name = "BtnSalaries";
+            this.BtnSalaries.Size = new System.Drawing.Size(270, 34);
+            this.BtnSalaries.Text = "Salarios";
+            this.BtnSalaries.Click += new System.EventHandler(this.BtnSalaries_Click);
+            // 
+            // BtnJobPositions
+            // 
+            this.BtnJobPositions.BackColor = System.Drawing.Color.Teal;
+            this.BtnJobPositions.ForeColor = System.Drawing.Color.White;
+            this.BtnJobPositions.Name = "BtnJobPositions";
+            this.BtnJobPositions.Size = new System.Drawing.Size(270, 34);
+            this.BtnJobPositions.Text = "Cargos";
+            this.BtnJobPositions.Click += new System.EventHandler(this.BtnJobPositions_Click);
             // 
             // toolStripSeparator3
             // 
@@ -228,6 +296,8 @@
             this.BtnManageUsers.Name = "BtnManageUsers";
             this.BtnManageUsers.Size = new System.Drawing.Size(196, 36);
             this.BtnManageUsers.Text = "Gestión usuarios";
+            this.BtnManageUsers.DropDownClosed += new System.EventHandler(this.BtnManageUsers_DropDownClosed);
+            this.BtnManageUsers.DropDownOpened += new System.EventHandler(this.BtnManageUsers_DropDownOpened);
             // 
             // BtnRoles
             // 
@@ -236,6 +306,7 @@
             this.BtnRoles.Name = "BtnRoles";
             this.BtnRoles.Size = new System.Drawing.Size(287, 34);
             this.BtnRoles.Text = "Roles";
+            this.BtnRoles.Click += new System.EventHandler(this.BtnRoles_Click);
             // 
             // BtnPermissions
             // 
@@ -244,6 +315,7 @@
             this.BtnPermissions.Name = "BtnPermissions";
             this.BtnPermissions.Size = new System.Drawing.Size(287, 34);
             this.BtnPermissions.Text = "Permisos";
+            this.BtnPermissions.Click += new System.EventHandler(this.BtnPermissions_Click);
             // 
             // BtnUsers
             // 
@@ -252,6 +324,7 @@
             this.BtnUsers.Name = "BtnUsers";
             this.BtnUsers.Size = new System.Drawing.Size(287, 34);
             this.BtnUsers.Text = "Usuarios";
+            this.BtnUsers.Click += new System.EventHandler(this.BtnUsers_Click);
             // 
             // BtnUserPermissions
             // 
@@ -260,6 +333,7 @@
             this.BtnUserPermissions.Name = "BtnUserPermissions";
             this.BtnUserPermissions.Size = new System.Drawing.Size(287, 34);
             this.BtnUserPermissions.Text = "Configurar permisos";
+            this.BtnUserPermissions.Click += new System.EventHandler(this.BtnUserPermissions_Click);
             // 
             // toolStripSeparator4
             // 
@@ -279,6 +353,8 @@
             this.BtnConfig.Name = "BtnConfig";
             this.BtnConfig.Size = new System.Drawing.Size(110, 36);
             this.BtnConfig.Text = "Config";
+            this.BtnConfig.DropDownClosed += new System.EventHandler(this.BtnConfig_DropDownClosed);
+            this.BtnConfig.DropDownOpened += new System.EventHandler(this.BtnConfig_DropDownOpened);
             // 
             // BtnCompanyData
             // 
@@ -287,6 +363,7 @@
             this.BtnCompanyData.Name = "BtnCompanyData";
             this.BtnCompanyData.Size = new System.Drawing.Size(286, 34);
             this.BtnCompanyData.Text = "Empresa";
+            this.BtnCompanyData.Click += new System.EventHandler(this.BtnCompanyData_Click);
             // 
             // BtnBillRanges
             // 
@@ -295,6 +372,7 @@
             this.BtnBillRanges.Name = "BtnBillRanges";
             this.BtnBillRanges.Size = new System.Drawing.Size(286, 34);
             this.BtnBillRanges.Text = "Rangos Facturacion";
+            this.BtnBillRanges.Click += new System.EventHandler(this.BtnBillRanges_Click);
             // 
             // BtnConfigServer
             // 
@@ -303,6 +381,43 @@
             this.BtnConfigServer.Name = "BtnConfigServer";
             this.BtnConfigServer.Size = new System.Drawing.Size(286, 34);
             this.BtnConfigServer.Text = "Servidor";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 41);
+            // 
+            // BtnLogs
+            // 
+            this.BtnLogs.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BtnLogBook,
+            this.BtnCardex});
+            this.BtnLogs.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLogs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnLogs.Image = ((System.Drawing.Image)(resources.GetObject("BtnLogs.Image")));
+            this.BtnLogs.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnLogs.Name = "BtnLogs";
+            this.BtnLogs.Size = new System.Drawing.Size(125, 36);
+            this.BtnLogs.Text = "Bitácora";
+            this.BtnLogs.DropDownClosed += new System.EventHandler(this.BtnLogs_DropDownClosed);
+            this.BtnLogs.DropDownOpened += new System.EventHandler(this.BtnLogs_DropDownOpened);
+            // 
+            // BtnLogBook
+            // 
+            this.BtnLogBook.BackColor = System.Drawing.Color.Teal;
+            this.BtnLogBook.ForeColor = System.Drawing.Color.White;
+            this.BtnLogBook.Name = "BtnLogBook";
+            this.BtnLogBook.Size = new System.Drawing.Size(206, 34);
+            this.BtnLogBook.Text = "Aplicación";
+            this.BtnLogBook.Click += new System.EventHandler(this.BtnLogBook_Click);
+            // 
+            // BtnCardex
+            // 
+            this.BtnCardex.BackColor = System.Drawing.Color.Teal;
+            this.BtnCardex.ForeColor = System.Drawing.Color.White;
+            this.BtnCardex.Name = "BtnCardex";
+            this.BtnCardex.Size = new System.Drawing.Size(206, 34);
+            this.BtnCardex.Text = "Cardex";
             // 
             // StPrincipal
             // 
@@ -326,8 +441,9 @@
             // 
             this.LblUserLogged.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblUserLogged.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LblUserLogged.Image = ((System.Drawing.Image)(resources.GetObject("LblUserLogged.Image")));
             this.LblUserLogged.Name = "LblUserLogged";
-            this.LblUserLogged.Size = new System.Drawing.Size(34, 29);
+            this.LblUserLogged.Size = new System.Drawing.Size(58, 29);
             this.LblUserLogged.Text = "---";
             // 
             // toolStripSeparator6
@@ -339,8 +455,9 @@
             // 
             this.LblFecha.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFecha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LblFecha.Image = ((System.Drawing.Image)(resources.GetObject("LblFecha.Image")));
             this.LblFecha.Name = "LblFecha";
-            this.LblFecha.Size = new System.Drawing.Size(34, 29);
+            this.LblFecha.Size = new System.Drawing.Size(58, 29);
             this.LblFecha.Text = "---";
             // 
             // toolStripSeparator7
@@ -352,8 +469,9 @@
             // 
             this.LblRole.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblRole.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LblRole.Image = ((System.Drawing.Image)(resources.GetObject("LblRole.Image")));
             this.LblRole.Name = "LblRole";
-            this.LblRole.Size = new System.Drawing.Size(34, 29);
+            this.LblRole.Size = new System.Drawing.Size(58, 29);
             this.LblRole.Text = "---";
             // 
             // toolStripSeparator8
@@ -366,24 +484,28 @@
             this.PbxLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PbxLogout.BackColor = System.Drawing.Color.Teal;
             this.PbxLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbxLogout.Image = ((System.Drawing.Image)(resources.GetObject("PbxLogout.Image")));
             this.PbxLogout.Location = new System.Drawing.Point(1213, 0);
             this.PbxLogout.Name = "PbxLogout";
             this.PbxLogout.Size = new System.Drawing.Size(30, 40);
             this.PbxLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbxLogout.TabIndex = 41;
             this.PbxLogout.TabStop = false;
+            this.PbxLogout.Click += new System.EventHandler(this.PbxLogout_Click);
             // 
             // PbxLeave
             // 
             this.PbxLeave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PbxLeave.BackColor = System.Drawing.Color.Teal;
             this.PbxLeave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbxLeave.Image = ((System.Drawing.Image)(resources.GetObject("PbxLeave.Image")));
             this.PbxLeave.Location = new System.Drawing.Point(1177, 0);
             this.PbxLeave.Name = "PbxLeave";
             this.PbxLeave.Size = new System.Drawing.Size(30, 40);
             this.PbxLeave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbxLeave.TabIndex = 45;
             this.PbxLeave.TabStop = false;
+            this.PbxLeave.Click += new System.EventHandler(this.PbxLeave_Click);
             // 
             // Dashboard
             // 
@@ -401,6 +523,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Servidor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.PnlAdminSideBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TstPrincipal.ResumeLayout(false);
@@ -417,21 +540,16 @@
 
         private System.Windows.Forms.FlowLayoutPanel PnlAdminSideBar;
         private System.Windows.Forms.ToolStrip TstPrincipal;
-        private System.Windows.Forms.ToolStripSeparator SprMiembros;
         private System.Windows.Forms.ToolStripDropDownButton BtnReports;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.Button BtnEntries;
+        private System.Windows.Forms.Button BtnInventoryEntries;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ToolStripButton BtnCheckIn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripDropDownButton BtnManageUsers;
         private System.Windows.Forms.ToolStripMenuItem BtnRoles;
         private System.Windows.Forms.ToolStripMenuItem BtnPermissions;
         private System.Windows.Forms.ToolStripMenuItem BtnUsers;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton BtnCheckout;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripDropDownButton BtnConfig;
         private System.Windows.Forms.ToolStripMenuItem BtnCompanyData;
         private System.Windows.Forms.ToolStripMenuItem BtnBillRanges;
         private System.Windows.Forms.StatusStrip StPrincipal;
@@ -449,6 +567,17 @@
         private System.Windows.Forms.ToolStripMenuItem BtnCheckInReport;
         private System.Windows.Forms.ToolStripMenuItem BtnCheckOutReport;
         private System.Windows.Forms.PictureBox PbxLeave;
-
+        private System.Windows.Forms.Button BtnInventoryExits;
+        private System.Windows.Forms.Button BtnSales;
+        public System.Windows.Forms.ToolStripDropDownButton BtnConfig;
+        private System.Windows.Forms.ToolStripDropDownButton BtnManageEmployees;
+        private System.Windows.Forms.ToolStripMenuItem BtnEmployees;
+        private System.Windows.Forms.ToolStripMenuItem BtnHoraries;
+        private System.Windows.Forms.ToolStripMenuItem BtnJobPositions;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        public System.Windows.Forms.ToolStripDropDownButton BtnLogs;
+        private System.Windows.Forms.ToolStripMenuItem BtnLogBook;
+        private System.Windows.Forms.ToolStripMenuItem BtnCardex;
+        private System.Windows.Forms.ToolStripMenuItem BtnSalaries;
     }
 }

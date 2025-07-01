@@ -18,14 +18,19 @@ namespace OpPOS.Models
         public USERS()
         {
             this.APP_MODULES = new HashSet<APP_MODULES>();
+            this.BILL = new HashSet<BILL>();
+            this.BILL_RANGE = new HashSet<BILL_RANGE>();
             this.CLIENTS = new HashSet<CLIENTS>();
             this.COMPANY_DATA = new HashSet<COMPANY_DATA>();
             this.EMPLOYEE_USER = new HashSet<EMPLOYEE_USER>();
             this.EMPLOYEES = new HashSet<EMPLOYEES>();
+            this.HORARY = new HashSet<HORARY>();
             this.INVENTORY = new HashSet<INVENTORY>();
+            this.INVENTORY_CARDEX = new HashSet<INVENTORY_CARDEX>();
             this.INVENTORY_ENTRIES = new HashSet<INVENTORY_ENTRIES>();
             this.INVENTORY_EXITS = new HashSet<INVENTORY_EXITS>();
             this.ISV_TYPES = new HashSet<ISV_TYPES>();
+            this.JOB_POSITIONS = new HashSet<JOB_POSITIONS>();
             this.LOGBOOK_APP = new HashSet<LOGBOOK_APP>();
             this.PRODUCTS = new HashSet<PRODUCTS>();
             this.ROLE_PERMISSIONS = new HashSet<ROLE_PERMISSIONS>();
@@ -34,12 +39,14 @@ namespace OpPOS.Models
             this.USER_PERMISSIONS = new HashSet<USER_PERMISSIONS>();
             this.USER_ROLES1 = new HashSet<USER_ROLES>();
             this.USERS1 = new HashSet<USERS>();
+            this.EMPLOYEE_SALARY = new HashSet<EMPLOYEE_SALARY>();
+            this.SALARIES = new HashSet<SALARIES>();
         }
     
         public string USER_CODE { get; set; }
         public string USER_NAME { get; set; }
         public string USER_PASSWORD { get; set; }
-        public Nullable<System.DateTime> INSERTED_AT { get; set; }
+        public System.DateTime INSERTED_AT { get; set; }
         public bool IS_DEL { get; set; }
         public bool USER_STATE { get; set; }
         public string CREATED_BY { get; set; }
@@ -47,6 +54,10 @@ namespace OpPOS.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<APP_MODULES> APP_MODULES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BILL> BILL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BILL_RANGE> BILL_RANGE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLIENTS> CLIENTS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -56,13 +67,19 @@ namespace OpPOS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EMPLOYEES> EMPLOYEES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HORARY> HORARY { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INVENTORY> INVENTORY { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<INVENTORY_CARDEX> INVENTORY_CARDEX { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INVENTORY_ENTRIES> INVENTORY_ENTRIES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INVENTORY_EXITS> INVENTORY_EXITS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ISV_TYPES> ISV_TYPES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<JOB_POSITIONS> JOB_POSITIONS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LOGBOOK_APP> LOGBOOK_APP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -81,5 +98,9 @@ namespace OpPOS.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USERS> USERS1 { get; set; }
         public virtual USERS USERS2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EMPLOYEE_SALARY> EMPLOYEE_SALARY { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SALARIES> SALARIES { get; set; }
     }
 }
