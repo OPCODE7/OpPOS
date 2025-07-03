@@ -2,6 +2,7 @@
 using OpPOS.Views;
 using OpPOS.Views.Administration.Audit;
 using OpPOS.Views.Administration.Configuration;
+using OpPOS.Views.Administration.Suppliers;
 using OpPOS.Views.Auth;
 using System;
 using System.Collections.Generic;
@@ -253,6 +254,15 @@ namespace OpPOS.Views
             Employees.FrmSalaries frmSalaries = new Employees.FrmSalaries();
             frmSalaries.MdiParent = this;
             frmSalaries.Show();
+
+        }
+
+        private void BtnSuppliers_Click(object sender, EventArgs e)
+        {
+            HideForms();
+            FrmSuppliers frmSuppliers = new FrmSuppliers();
+            frmSuppliers.MdiParent = this;
+            frmSuppliers.Show();
 
         }
     }

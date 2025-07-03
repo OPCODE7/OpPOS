@@ -289,6 +289,10 @@
     <Property Name="SUPPLIER_EMAIL" Type="varchar" MaxLength="100" />
     <Property Name="INSERTED_AT" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
     <Property Name="USER_CODE" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SUPPLIER_ADDRESS" Type="varchar(max)" Nullable="false" />
+    <Property Name="SUPPLIER_RTN" Type="varchar" MaxLength="15" />
+    <Property Name="SUPPLIER_STATE" Type="bit" Nullable="false" />
+    <Property Name="IS_DEL" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="SYSTEM_LICENSE">
     <Key>
@@ -894,6 +898,10 @@
     <Parameter Name="InsertedAt" Type="datetime" Mode="In" />
   </Function>
   <Function Name="SP_GET_COMPANY_DATA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GET_SUPPLIERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchFilter" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsDel" Type="bit" Mode="In" />
+  </Function>
   <EntityContainer Name="OpPOSModelStoreContainer">
     <EntitySet Name="APP_MODULES" EntityType="Self.APP_MODULES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />

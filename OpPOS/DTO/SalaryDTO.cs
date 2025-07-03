@@ -16,6 +16,7 @@ namespace OpPOS.DTO
         public string EMPLOYEE_CODE { get; set; }
 
         public string EMPLOYEE_NAME { get; set; }
+        public string EMPLOYEE_LASTNAME { get; set; }
 
     }
 }

@@ -91,7 +91,7 @@ namespace OpPOS.Views.Employees
 
             foreach (HORARY horary in horaries)
             {
-                DgvHoraries.Rows.Add(horary.HORARY_CODE, horary.HORARY_DESCRIPTION, horary.INITIAL_HOUR, horary.FINAL_HOUR, Convert.ToDateTime(horary.INSERTED_AT).ToShortDateString());
+                DgvHoraries.Rows.Add(horary.HORARY_CODE, horary.HORARY_DESCRIPTION, horary.INITIAL_HOUR, horary.FINAL_HOUR, Convert.ToDateTime(horary.INSERTED_AT).ToString("dd/MM/yyyy"));
             }
         }
 

@@ -360,7 +360,7 @@ namespace OpPOS.Views.Employees
 
             foreach (var item in employess)
             {
-                DgvEmployees.Rows.Add(item.EMPLOYEE_CODE, item.EMPLOYEE_DNI, item.EMPLOYEE_NAME + " " + item.EMPLOYEE_LASTNAME, item.DESCRIPTION_JOB_POSITION, item.HORARY_DESCRIPTION, item.EMPLOYEE_PHONE, Convert.ToDateTime(item.INSERTED_AT));
+                DgvEmployees.Rows.Add(item.EMPLOYEE_CODE, item.EMPLOYEE_DNI, item.EMPLOYEE_NAME + " " + item.EMPLOYEE_LASTNAME, item.DESCRIPTION_JOB_POSITION, item.HORARY_DESCRIPTION, item.EMPLOYEE_PHONE, Convert.ToDateTime(item.INSERTED_AT).ToString("dd/MM/yyyy"));
             }
         }
 

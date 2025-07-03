@@ -266,6 +266,33 @@ namespace OpPOS.Helpers
             return fullDateString.Contains(searchFilter.ToLower()) || compactDateString.Contains(searchFilter.ToLower());
         }
 
+        public bool LooksLikeDate(string searchFilter)
+        {
+            if (string.IsNullOrWhiteSpace(searchFilter))
+                return false;
+
+            searchFilter = searchFilter.Trim();
+
+            foreach (char c in searchFilter)
+            {
+                if (!(char.IsDigit(c) || c == '/' || c == '-' || c == ':' || c == ' '))
+                {
+                    return false;
+                }
+            }
+            
+            if (searchFilter.Contains("/") || searchFilter.Contains("-") || searchFilter.Contains(":") || searchFilter.Contains(" "))
+                return true;
+
+            if (searchFilter.Length == 4 && int.TryParse(searchFilter, out int year))
+            {
+                if (year >= 1900 && year <= 2100)
+                    return true;
+            }
+
+            return false;
+        }
+
         public bool CheckFileExist(string path)
         {
             return File.Exists(path);

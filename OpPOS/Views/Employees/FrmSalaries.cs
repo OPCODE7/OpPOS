@@ -44,28 +44,28 @@ namespace OpPOS.Views.Employees
 
         private void FrmSalaries_Load(object sender, EventArgs e)
         {
-            startForm();
+            StartForm();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            startForm();
+            StartForm();
         }
 
         private void PbxCancel_Click(object sender, EventArgs e)
         {
             TxtSearch.Clear();
-            getSalaries("", false);
+            GetSalaries("", false);
         }
 
         private void PbxSearch_Click(object sender, EventArgs e)
         {
-            getSalaries(TxtSearch.Text.Trim(), flagIsPaperbin);
+            GetSalaries(TxtSearch.Text.Trim(), flagIsPaperbin);
         }
 
         private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) getSalaries(TxtSearch.Text.Trim(), flagIsPaperbin);
+            if (e.KeyCode == Keys.Enter) GetSalaries(TxtSearch.Text.Trim(), flagIsPaperbin);
         }
 
         private void DgvSalaries_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -213,7 +213,7 @@ namespace OpPOS.Views.Employees
                             await lac.saveLog(Config.User.userId, "Modificar", logDesc, moduleId, DateTime.Now);
 
                             h.MsgSuccess(Helpers.App.Msg0003);
-                            startForm();
+                            StartForm();
                         }
                         else
                         {
@@ -273,7 +273,6 @@ namespace OpPOS.Views.Employees
                     BASE_SALARY = baseSalary,
                     INCREASE = increase,
                     TOTAL_SALARY = totalSalary,
-                    INSERTED_AT = DateTime.Now,
                     USER_CODE = userId
                 };
 
@@ -309,7 +308,7 @@ namespace OpPOS.Views.Employees
                     await lac.saveLog(Config.User.userId, "Insertar", logDesc, moduleId, DateTime.Now);
 
                     h.MsgSuccess(Helpers.App.Msg0001);
-                    startForm();
+                    StartForm();
                 }
                 else
                 {
@@ -345,7 +344,7 @@ namespace OpPOS.Views.Employees
                     await lac.saveLog(Config.User.userId, "Mover a papelera", $"El usuario {Config.User.userName} movió el salario con código{salary.SALARY_CODE} a la papelera de reciclaje.", moduleId, DateTime.Now);
 
                     h.MsgSuccess(Helpers.App.Msg0005);
-                    startForm();
+                    StartForm();
                 }
                 else
                 {
@@ -356,13 +355,13 @@ namespace OpPOS.Views.Employees
 
         private void BtnPaperbin_Click(object sender, EventArgs e)
         {
-            startForm();
+            StartForm();
             BtnNew.Enabled = false;
             BtnCancel.Enabled = true;
             PbxRecovery.Visible = true;
             PbxDestroy.Visible = true;
             flagIsPaperbin = true;
-            getSalaries("", flagIsPaperbin);
+            GetSalaries("", flagIsPaperbin);
         }
 
         private async void PbxRecovery_Click(object sender, EventArgs e)
@@ -375,7 +374,7 @@ namespace OpPOS.Views.Employees
                 {
                     await lac.saveLog(Config.User.userId, "Recuperar", $"El usuario {Config.User.userName} restauró el salario con código {salary.SALARY_CODE} de la papelera.", moduleId, DateTime.Now);
                     h.MsgSuccess(Helpers.App.Msg0010);
-                    startForm();
+                    StartForm();
                 }
                 else
                 {
@@ -398,7 +397,7 @@ namespace OpPOS.Views.Employees
                     {
                         await lac.saveLog(Config.User.userId, "Eliminar", $"El usuario {Config.User.userName} eliminó permanentemente el salario con código {TxtSalaryCode.Text}.", moduleId, DateTime.Now);
                         h.MsgSuccess(Helpers.App.Msg0008);
-                        startForm();
+                        StartForm();
                     }
                 }
                 else
@@ -459,7 +458,7 @@ namespace OpPOS.Views.Employees
 
             if (string.IsNullOrEmpty(text))
             {
-                fillCmbEmployees();
+                FillCmbEmployees();
                 CmbEmployees.SelectedIndex = -1;
             }
             else
@@ -482,10 +481,10 @@ namespace OpPOS.Views.Employees
 
         }
 
-        private void startForm()
+        private void StartForm()
         {
-            getSalaries("", false);
-            fillCmbEmployees();
+            GetSalaries("", false);
+            FillCmbEmployees();
             BtnDelete.Enabled = false;
             BtnEdit.Enabled = false;
             BtnNew.Enabled = PermissionManager.HasPermission(moduleId, "Crear");
@@ -516,7 +515,7 @@ namespace OpPOS.Views.Employees
 
         }
 
-        private void fillCmbEmployees()
+        private void FillCmbEmployees()
         {
             allEmployees = ec.GetEmployees("", false);
             CmbEmployees.DataSource = allEmployees;
@@ -524,7 +523,7 @@ namespace OpPOS.Views.Employees
             CmbEmployees.ValueMember = "EMPLOYEE_CODE";
         }
 
-        public void getSalaries(string searchFilter, bool isDel)
+        public void GetSalaries(string searchFilter, bool isDel)
         {
             DgvSalaries.Rows.Clear();
             List<SalaryDTO> salaries = sc.GetSalaries(searchFilter, isDel);
@@ -533,14 +532,14 @@ namespace OpPOS.Views.Employees
                 h.MsgInfo(Helpers.App.Msg0012);
                 if (searchFilter != "")
                 {
-                    getSalaries("", false);
+                    GetSalaries("", false);
                 }
                 return;
             }
 
             foreach (var salary in salaries)
             {
-                DgvSalaries.Rows.Add(salary.SALARY_CODE, salary.EMPLOYEE_NAME, salary.BASE_SALARY, salary.INCREASE, salary.TOTAL_SALARY, salary.INSERTED_AT.ToShortDateString());
+                DgvSalaries.Rows.Add(salary.SALARY_CODE, salary.EMPLOYEE_NAME, salary.BASE_SALARY, salary.INCREASE, salary.TOTAL_SALARY, salary.INSERTED_AT.ToString("dd/MM/yyyy"));
             }
 
         }

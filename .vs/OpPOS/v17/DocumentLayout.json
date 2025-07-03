@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "C:\\OPCODE\\OP_APPS\\OpPOS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\reports\\rdlc\\reportjobpositions.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
-      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\reports\\rdlc\\reportjobpositions.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\controllers\\salariescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\controllers\\salariescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\reports\\rdlc\\reporthoraries.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
-      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\reports\\rdlc\\reporthoraries.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\employees\\frmjobpositions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\employees\\frmjobpositions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\employees\\frmsalaries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\employees\\frmsalaries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\reports\\datasets\\dtsemployees.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
-      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\reports\\datasets\\dtsemployees.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|C:\\OPCODE\\OP_APPS\\OpPOS\\oppos\\controllers\\horarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\controllers\\horarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\employees\\frmhorary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\employees\\frmhorary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\employees\\frmhorary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\employees\\frmhorary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|c:\\opcode\\op_apps\\oppos\\oppos\\views\\employees\\frmemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BA16155-804F-4422-B90D-81C64F13109B}|OpPOS\\OpPOS.csproj|solutionrelative:oppos\\views\\employees\\frmemployees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,75 +35,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ReportJobPositions.rdlc [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Reports\\RDLC\\ReportJobPositions.rdlc",
-              "RelativeDocumentMoniker": "OpPOS\\Views\\Reports\\RDLC\\ReportJobPositions.rdlc",
-              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Reports\\RDLC\\ReportJobPositions.rdlc [Dise\u00F1o]",
-              "RelativeToolTip": "OpPOS\\Views\\Reports\\RDLC\\ReportJobPositions.rdlc [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
-              "WhenOpened": "2025-07-01T03:15:53.12Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "Title": "SalariesController.cs",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Controllers\\SalariesController.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Controllers\\SalariesController.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Controllers\\SalariesController.cs*",
+              "RelativeToolTip": "OpPOS\\Controllers\\SalariesController.cs*",
+              "ViewState": "AQIAABwAAAAAAAAAAAAYwCAAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T03:10:15.665Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FrmJobPositions.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmJobPositions.cs",
-              "RelativeDocumentMoniker": "OpPOS\\Views\\Employees\\FrmJobPositions.cs",
-              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmJobPositions.cs [Dise\u00F1o]",
-              "RelativeToolTip": "OpPOS\\Views\\Employees\\FrmJobPositions.cs [Dise\u00F1o]",
+              "Title": "FrmSalaries.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmSalaries.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Views\\Employees\\FrmSalaries.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmSalaries.cs [Dise\u00F1o]",
+              "RelativeToolTip": "OpPOS\\Views\\Employees\\FrmSalaries.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T03:14:49.168Z",
+              "WhenOpened": "2025-07-03T03:07:29.989Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FrmHorary.cs",
-              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmHorary.cs",
-              "RelativeDocumentMoniker": "OpPOS\\Views\\Employees\\FrmHorary.cs",
-              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmHorary.cs",
-              "RelativeToolTip": "OpPOS\\Views\\Employees\\FrmHorary.cs",
-              "ViewState": "AQIAADcBAAAAAAAAAAD4v0kBAABDAAAA",
+              "DocumentIndex": 1,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "OpPOS\\Controllers\\EmployeeController.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAACUAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T03:13:08.269Z",
+              "WhenOpened": "2025-07-03T02:18:13.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmEmployees.cs",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmEmployees.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Views\\Employees\\FrmEmployees.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmEmployees.cs",
+              "RelativeToolTip": "OpPOS\\Views\\Employees\\FrmEmployees.cs",
+              "ViewState": "AQIAAFwBAAAAAAAAAAAYwGoBAAD7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T23:56:31.935Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DtsEmployees.xsd",
-              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Reports\\DataSets\\DtsEmployees.xsd",
-              "RelativeDocumentMoniker": "OpPOS\\Views\\Reports\\DataSets\\DtsEmployees.xsd",
-              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Reports\\DataSets\\DtsEmployees.xsd",
-              "RelativeToolTip": "OpPOS\\Views\\Reports\\DataSets\\DtsEmployees.xsd",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2025-07-01T02:49:06.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReportHoraries.rdlc [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Reports\\RDLC\\ReportHoraries.rdlc",
-              "RelativeDocumentMoniker": "OpPOS\\Views\\Reports\\RDLC\\ReportHoraries.rdlc",
-              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Reports\\RDLC\\ReportHoraries.rdlc [Dise\u00F1o]",
-              "RelativeToolTip": "OpPOS\\Views\\Reports\\RDLC\\ReportHoraries.rdlc [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
-              "WhenOpened": "2025-07-01T02:42:03.007Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmHorary.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmHorary.cs",
-              "RelativeDocumentMoniker": "OpPOS\\Views\\Employees\\FrmHorary.cs",
-              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Views\\Employees\\FrmHorary.cs [Dise\u00F1o]",
-              "RelativeToolTip": "OpPOS\\Views\\Employees\\FrmHorary.cs [Dise\u00F1o]",
+              "Title": "HoraryController.cs",
+              "DocumentMoniker": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Controllers\\HoraryController.cs",
+              "RelativeDocumentMoniker": "OpPOS\\Controllers\\HoraryController.cs",
+              "ToolTip": "C:\\OPCODE\\OP_APPS\\OpPOS\\OpPOS\\Controllers\\HoraryController.cs",
+              "RelativeToolTip": "OpPOS\\Controllers\\HoraryController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAACQAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T02:37:02.466Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-07-02T02:09:06.602Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -91,12 +91,14 @@
     <Compile Include="Controllers\EmployeeSalaryController.cs" />
     <Compile Include="Controllers\EmployeeUserController.cs" />
     <Compile Include="Controllers\HoraryController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\JobPositionsController.cs" />
     <Compile Include="Controllers\LogBookAppController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\RolePermissionsController.cs" />
     <Compile Include="Controllers\SalariesController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\SystemLicenseController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DTO\BillRangeDTO.cs" />
@@ -200,6 +202,9 @@
     <Compile Include="Models\SP_GET_COMPANY_DATA_Result.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SP_GET_SUPPLIERS_Result.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SUPPLIERS.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -241,6 +246,18 @@
     </Compile>
     <Compile Include="Views\Administration\Configuration\FrmServerConfig.Designer.cs">
       <DependentUpon>FrmServerConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Administration\Inventory\FrmInventoryEntries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Administration\Inventory\FrmInventoryEntries.Designer.cs">
+      <DependentUpon>FrmInventoryEntries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Administration\Suppliers\FrmSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Administration\Suppliers\FrmSuppliers.Designer.cs">
+      <DependentUpon>FrmSuppliers.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Auth\Login.cs">
       <SubType>Form</SubType>
@@ -295,6 +312,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DtsLogs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\DataSets\DtsSuppliers.cs">
+      <DependentUpon>DtsSuppliers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\DataSets\DtsSuppliers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DtsSuppliers.xsd</DependentUpon>
     </Compile>
     <Compile Include="Views\Reports\DataSets\DtsUsers.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -352,6 +377,9 @@
     <EmbeddedResource Include="Views\Administration\Configuration\FrmServerConfig.resx">
       <DependentUpon>FrmServerConfig.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Administration\Suppliers\FrmSuppliers.resx">
+      <DependentUpon>FrmSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Auth\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -373,6 +401,7 @@
     <EmbeddedResource Include="Views\Reports\FrmDefaultRpt.resx">
       <DependentUpon>FrmDefaultRpt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\RDLC\ReportSuppliers.rdlc" />
     <EmbeddedResource Include="Views\Reports\RDLC\ReportHoraries.rdlc" />
     <EmbeddedResource Include="Views\Reports\RDLC\ReportJobPositions.rdlc" />
     <EmbeddedResource Include="Views\Reports\RDLC\ReportLogs.rdlc" />
@@ -441,6 +470,17 @@
     </None>
     <None Include="Views\Reports\DataSets\DtsLogs.xss">
       <DependentUpon>DtsLogs.xsd</DependentUpon>
+    </None>
+    <None Include="Views\Reports\DataSets\DtsSuppliers.xsc">
+      <DependentUpon>DtsSuppliers.xsd</DependentUpon>
+    </None>
+    <None Include="Views\Reports\DataSets\DtsSuppliers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DtsSuppliers.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Views\Reports\DataSets\DtsSuppliers.xss">
+      <DependentUpon>DtsSuppliers.xsd</DependentUpon>
     </None>
     <None Include="Views\Reports\DataSets\DtsUsers.xsc">
       <DependentUpon>DtsUsers.xsd</DependentUpon>

@@ -3,7 +3,9 @@ using OpPOS.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,49 +22,23 @@ namespace OpPOS.Controllers
 
         public IEnumerable<EmployeeDTO> GetEmployees(string searchFilter = "", bool isDel = false)
         {
-
             try
             {
-                searchFilter = searchFilter.ToLower();
+         
                 using (OpPOSEntities db = new OpPOSEntities())
                 {
-                    var query = db.EMPLOYEES
-                     .Join(db.JOB_POSITIONS, emp => emp.JOB_POSITION_CODE, jps => jps.JOB_POSITION_CODE, (emp, jps) => new { emp, jps })
-                     .Join(db.HORARY, ej => ej.emp.HORARY_CODE, hor => hor.HORARY_CODE, (ej, hor) => new
-                     {
-                         ej.emp.EMPLOYEE_CODE,
-                         ej.emp.EMPLOYEE_DNI,
-                         ej.emp.EMPLOYEE_NAME,
-                         ej.emp.EMPLOYEE_LASTNAME,
-                         ej.jps.DESCRIPTION_JOB_POSITION,
-                         hor.INITIAL_HOUR,
-                         hor.FINAL_HOUR,
-                         hor.HORARY_DESCRIPTION,
-                         ej.emp.EMPLOYEE_PHONE,
-                         ej.emp.INSERTED_AT,
-                         ej.emp.IS_DEL
-                     });
+                    var searchParam = new SqlParameter("@SearchFilter", string.IsNullOrWhiteSpace(searchFilter) ? (object)DBNull.Value : searchFilter);
+                    var isDelParam = new SqlParameter("@IsDel", isDel);
 
-                    // Filtrar por estado eliminado y código excluido (esto sí se puede en EF)
-                    query = query.Where(emp => emp.IS_DEL == isDel && emp.EMPLOYEE_CODE != "EMP000001");
+                    var query = db.Database.SqlQuery<EmployeeDTO>(
+                         "EXEC SP_GET_EMPlOYEES @SearchFilter, @IsDel",
+                         searchParam,
+                         isDelParam
 
-                    // Ejecutar query y traer los datos a memoria
-                    var result = query.ToList();
+                     ).ToList();
 
-                    if (!string.IsNullOrEmpty(searchFilter))
-                    {
-                        result = result.Where(emp =>
-                            emp.EMPLOYEE_CODE.ToLower().Contains(searchFilter) ||
-                            (emp.EMPLOYEE_NAME + " " + emp.EMPLOYEE_LASTNAME).ToLower().Contains(searchFilter) ||
-                            emp.EMPLOYEE_DNI.ToLower().Contains(searchFilter) ||
-                            emp.DESCRIPTION_JOB_POSITION.ToLower().Contains(searchFilter) ||
-                            emp.EMPLOYEE_PHONE.ToLower().Contains(searchFilter) ||
-                            emp.HORARY_DESCRIPTION.ToLower().Contains(searchFilter) ||
-                           h.DoesDateMatch(emp.INSERTED_AT, searchFilter)
-                        ).ToList();
-                    }
 
-                    return result.Select(emp => new EmployeeDTO
+                    return query.Select(emp => new EmployeeDTO
                     {
                         EMPLOYEE_CODE = emp.EMPLOYEE_CODE,
                         EMPLOYEE_DNI = emp.EMPLOYEE_DNI,
@@ -82,7 +58,7 @@ namespace OpPOS.Controllers
             }
             catch (Exception ex)
             {
-                h.MsgError("ERROR INESPERADO: " + ex.Message.ToUpper());
+                h.MsgError("ERROR INESPERADO: " + ex.ToString().ToUpper());
             }
 
             return Enumerable.Empty<EmployeeDTO>();

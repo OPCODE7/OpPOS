@@ -1,40 +1,62 @@
-﻿using OpPOS.Models;
+﻿using OpPOS.Helpers;
+using OpPOS.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OpPOS.Controllers
 {
-    internal class HoraryController : DataBaseController
+    internal class SupplierController
     {
-        private HORARY horary;
-        Helpers.Helper h = new Helpers.Helper();
-        public HoraryController()
-        {
-            horary = new HORARY();
+        Helper h;
+        public SupplierController() {
+            h = new Helper();
         }
 
-        public List<HORARY> GetHoraries(string searchFilter, bool isDel = false)
+        public List<SUPPLIERS> GetSuppliers(string searchFilter, bool isDel)
         {
-            List<HORARY> horaries = new List<HORARY>();
+            List<SUPPLIERS> suppliers = new List<SUPPLIERS>();
+
             try
             {
                 using (OpPOSEntities db = new OpPOSEntities())
                 {
-
                     var searchParam = new SqlParameter("@SearchFilter", string.IsNullOrWhiteSpace(searchFilter) ? (object)DBNull.Value : searchFilter);
                     var isDelParam = new SqlParameter("@IsDel", isDel);
 
-                    horaries = db.Database.SqlQuery<HORARY>(
-                        "EXEC SP_GET_HORARY @SearchFilter, @IsDel",
+                    suppliers = db.Database.SqlQuery<SUPPLIERS>(
+                        "EXEC SP_GET_SUPPLIERS @SearchFilter, @IsDel",
                         searchParam,
                         isDelParam
                     ).ToList();
-                    
+                }
+            }
+            catch (SqlException ex)
+            {
+                h.MsgError("ERROR EN LA BASE DE DATOS: " + ex.Message.ToUpper());
+            }
+            catch (Exception ex)
+            {
+                h.MsgError("ERROR INESPERADO: " + ex.Message.ToUpper());
+            }
+
+            return suppliers;
+        }
+
+
+        public SUPPLIERS GetSupplier(string codSupplier)
+        {
+            SUPPLIERS supplier = new SUPPLIERS();
+            try
+            {
+                using (OpPOSEntities db= new OpPOSEntities())
+                {
+                    supplier = db.SUPPLIERS.Find(codSupplier);
                 }
             }
             catch (SqlException ex)
@@ -46,17 +68,45 @@ namespace OpPOS.Controllers
             {
                 h.MsgError("ERROR INESPERADO: " + ex.Message.ToUpper());
             }
-            return horaries;
+
+            return supplier;
         }
 
-        public HORARY GetHorary(string id)
+        public int SaveSupplier(SUPPLIERS newSupplier)
         {
+            int result = 0;
             try
             {
                 using (OpPOSEntities db = new OpPOSEntities())
                 {
-                    horary = db.HORARY.Find(id);
+                    db.SUPPLIERS.Add(newSupplier);
+                    result = db.SaveChanges();
                 }
+            }
+            catch (SqlException ex)
+            {
+                h.MsgError("ERROR EN LA BASE DE DATOS: " + ex.ToString().ToUpper());
+
+            }
+            catch (Exception ex)
+            {
+                h.MsgError("ERROR INESPERADO: " + ex.ToString().ToUpper());
+            }
+
+            return result;
+        }
+
+        public int UpdateSupplier(SUPPLIERS supplier)
+        {
+            int result = 0;
+            try
+            {
+                using(OpPOSEntities db= new OpPOSEntities())
+                {
+                    db.Entry(supplier).State = System.Data.Entity.EntityState.Modified;
+                    result= db.SaveChanges();
+                }
+
             }
             catch (SqlException ex)
             {
@@ -65,21 +115,20 @@ namespace OpPOS.Controllers
             }
             catch (Exception ex)
             {
-                h.MsgError(ex.Message);
+                h.MsgError("ERROR INESPERADO: " + ex.Message.ToUpper());
             }
-            return horary;
-
+            return result;
         }
 
-
-        public int SaveHorary(HORARY horary)
+        public int DeleteSupplier(string codSupplier)
         {
             int result = 0;
             try
             {
                 using (OpPOSEntities db = new OpPOSEntities())
                 {
-                    db.HORARY.Add(horary);
+                    SUPPLIERS supplier = db.SUPPLIERS.Find(codSupplier);
+                    db.Entry(supplier).State = System.Data.Entity.EntityState.Deleted;
                     result = db.SaveChanges();
                 }
 
@@ -91,65 +140,11 @@ namespace OpPOS.Controllers
             }
             catch (Exception ex)
             {
-                h.MsgError(ex.ToString());
+                h.MsgError("ERROR INESPERADO: " + ex.Message.ToUpper());
             }
 
             return result;
-        }
 
-        public int UpdateHorary(HORARY horary)
-        {
-            int result = 0;
-            try
-            {
-                using (OpPOSEntities db = new OpPOSEntities())
-                {
-                    db.Entry(horary).State = EntityState.Modified;
-                    result = db.SaveChanges();
-                }
-
-            }
-            catch (SqlException ex)
-            {
-                h.MsgError("ERROR EN LA BASE DE DATOS: " + ex.Message.ToUpper());
-
-            }
-            catch (Exception ex)
-            {
-                h.MsgError(ex.ToString());
-            }
-
-            return result;
-        }
-
-        public int DeleteHorary(HORARY horary)
-        {
-            int result = 0;
-            try
-            {
-                using (OpPOSEntities db = new OpPOSEntities())
-                {
-                    if (HasReferences(db, db.EMPLOYEES, e => e.HORARY_CODE == horary.HORARY_CODE))
-                    {
-                        h.MsgError(Helpers.App.Msg0019);
-                        return 0;
-                    }
-
-                    db.HORARY.Attach(horary);
-                    db.HORARY.Remove(horary);
-                    result = db.SaveChanges();
-                }
-            }
-            catch (SqlException ex)
-            {
-                h.MsgError("ERROR EN LA BASE DE DATOS: " + ex.Message.ToUpper());
-
-            }
-            catch (Exception ex)
-            {
-                h.MsgError(ex.ToString());
-            }
-            return result;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,28 +26,25 @@ namespace OpPOS.Controllers
             {
                 using (OpPOSEntities db = new OpPOSEntities())
                 {
-                    var query = from es in db.EMPLOYEE_SALARY
-                                join s in db.SALARIES on es.SALARY_CODE equals s.SALARY_CODE
-                                join e in db.EMPLOYEES on es.EMPLOYEE_CODE equals e.EMPLOYEE_CODE
-                                where s.IS_DEL == isDel
-                                select new SalaryDTO
-                                {
-                                    SALARY_CODE = s.SALARY_CODE,
-                                    BASE_SALARY = s.BASE_SALARY,
-                                    INCREASE = s.INCREASE,
-                                    TOTAL_SALARY = s.TOTAL_SALARY,
-                                    INSERTED_AT = s.INSERTED_AT,
-                                    EMPLOYEE_CODE = e.EMPLOYEE_CODE,
-                                    EMPLOYEE_NAME = e.EMPLOYEE_NAME + " " + e.EMPLOYEE_LASTNAME
-                                };
+                    var searchParam = new SqlParameter("@SearchFilter", string.IsNullOrWhiteSpace(searchFilter) ? (object)DBNull.Value : searchFilter);
+                    var isDelParam = new SqlParameter("@IsDel", isDel);
 
-                    var result = query.ToList();
-                    if (!String.IsNullOrEmpty(searchFilter))
+                    var query = db.Database.SqlQuery<SalaryDTO>(
+                         "EXEC SP_GET_SALARIES @SearchFilter, @IsDel",
+                         searchParam,
+                         isDelParam
+
+                     ).ToList();
+
+                    salaries = query.Select(sal => new SalaryDTO
                     {
-                        result = result.Where(s => s.SALARY_CODE.ToLower().Contains(searchFilter) || s.BASE_SALARY.ToString().ToLower().Contains(searchFilter) || s.INCREASE.ToString().ToLower().Contains(searchFilter) || s.TOTAL_SALARY.ToString().ToLower().Contains(searchFilter) || h.DoesDateMatch(s.INSERTED_AT, searchFilter) || s.EMPLOYEE_NAME.ToLower().Contains(searchFilter)).ToList();
-                    }
-
-                    salaries = result.ToList();
+                        SALARY_CODE = sal.SALARY_CODE,
+                        BASE_SALARY= sal.BASE_SALARY,
+                        INCREASE= sal.INCREASE,
+                        TOTAL_SALARY= sal.TOTAL_SALARY,
+                        EMPLOYEE_NAME= sal.EMPLOYEE_NAME +" " + sal.EMPLOYEE_LASTNAME,
+                        INSERTED_AT = sal.INSERTED_AT,
+                    }).ToList();
 
                 }
             }

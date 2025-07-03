@@ -79,3 +79,4 @@ C:\OPCODE\OP_APPS\OpPOS\OpPOS\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.r
 C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.csproj.Up2Date
 C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.exe
 C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.pdb
+C:\OPCODE\OP_APPS\OpPOS\OpPOS\obj\Debug\OpPOS.Views.Administration.Suppliers.FrmSuppliers.resources

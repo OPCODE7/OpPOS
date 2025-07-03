@@ -86,5 +86,57 @@ namespace OpPOS.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_COMPANY_DATA_Result>("SP_GET_COMPANY_DATA");
         }
+    
+        public virtual ObjectResult<SP_GET_SUPPLIERS_Result> SP_GET_SUPPLIERS(string searchFilter, Nullable<bool> isDel)
+        {
+            var searchFilterParameter = searchFilter != null ?
+                new ObjectParameter("SearchFilter", searchFilter) :
+                new ObjectParameter("SearchFilter", typeof(string));
+    
+            var isDelParameter = isDel.HasValue ?
+                new ObjectParameter("IsDel", isDel) :
+                new ObjectParameter("IsDel", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_SUPPLIERS_Result>("SP_GET_SUPPLIERS", searchFilterParameter, isDelParameter);
+        }
+    
+        public virtual ObjectResult<SP_GET_EMPLOYEES_Result> SP_GET_EMPLOYEES(string searchFilter, Nullable<bool> isDel)
+        {
+            var searchFilterParameter = searchFilter != null ?
+                new ObjectParameter("SearchFilter", searchFilter) :
+                new ObjectParameter("SearchFilter", typeof(string));
+    
+            var isDelParameter = isDel.HasValue ?
+                new ObjectParameter("IsDel", isDel) :
+                new ObjectParameter("IsDel", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_EMPLOYEES_Result>("SP_GET_EMPLOYEES", searchFilterParameter, isDelParameter);
+        }
+    
+        public virtual ObjectResult<SP_GET_HORARY_Result> SP_GET_HORARY(string searchFilter, Nullable<bool> isDel)
+        {
+            var searchFilterParameter = searchFilter != null ?
+                new ObjectParameter("SearchFilter", searchFilter) :
+                new ObjectParameter("SearchFilter", typeof(string));
+    
+            var isDelParameter = isDel.HasValue ?
+                new ObjectParameter("IsDel", isDel) :
+                new ObjectParameter("IsDel", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_HORARY_Result>("SP_GET_HORARY", searchFilterParameter, isDelParameter);
+        }
+    
+        public virtual ObjectResult<SP_GET_SALARIES_Result> SP_GET_SALARIES(string searchFilter, Nullable<bool> isDel)
+        {
+            var searchFilterParameter = searchFilter != null ?
+                new ObjectParameter("SearchFilter", searchFilter) :
+                new ObjectParameter("SearchFilter", typeof(string));
+    
+            var isDelParameter = isDel.HasValue ?
+                new ObjectParameter("IsDel", isDel) :
+                new ObjectParameter("IsDel", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GET_SALARIES_Result>("SP_GET_SALARIES", searchFilterParameter, isDelParameter);
+        }
     }
 }

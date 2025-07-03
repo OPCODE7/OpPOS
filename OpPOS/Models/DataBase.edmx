@@ -294,6 +294,10 @@
           <Property Name="SUPPLIER_EMAIL" Type="varchar" MaxLength="100" />
           <Property Name="INSERTED_AT" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
           <Property Name="USER_CODE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SUPPLIER_ADDRESS" Type="varchar(max)" Nullable="false" />
+          <Property Name="SUPPLIER_RTN" Type="varchar" MaxLength="15" />
+          <Property Name="SUPPLIER_STATE" Type="bit" Nullable="false" />
+          <Property Name="IS_DEL" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="SYSTEM_LICENSE">
           <Key>
@@ -899,6 +903,22 @@
           <Parameter Name="InsertedAt" Type="datetime" Mode="In" />
         </Function>
         <Function Name="SP_GET_COMPANY_DATA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_GET_EMPLOYEES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SearchFilter" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsDel" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="SP_GET_HORARY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SearchFilter" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsDel" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="SP_GET_SALARIES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SearchFilter" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsDel" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="SP_GET_SUPPLIERS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SearchFilter" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsDel" Type="bit" Mode="In" />
+        </Function>
         <EntityContainer Name="OpPOSModelStoreContainer">
           <EntitySet Name="APP_MODULES" EntityType="Self.APP_MODULES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
@@ -1438,6 +1458,10 @@
           <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="INVENTORY_ENTRIES" Relationship="Self.FK_ENTRIES_SUPPLIER" FromRole="SUPPLIERS" ToRole="INVENTORY_ENTRIES" />
           <NavigationProperty Name="USERS" Relationship="Self.FK_SUPPLIERS_USER" FromRole="SUPPLIERS" ToRole="USERS" />
+          <Property Name="SUPPLIER_ADDRESS" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SUPPLIER_RTN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SUPPLIER_STATE" Type="Boolean" Nullable="false" />
+          <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="SYSTEM_LICENSE">
           <Key>
@@ -2241,6 +2265,22 @@
             <End Role="SALARIES" EntitySet="SALARIES" />
           </AssociationSet>
           <FunctionImport Name="SP_GET_COMPANY_DATA" ReturnType="Collection(OpPOSModel.SP_GET_COMPANY_DATA_Result)" />
+          <FunctionImport Name="SP_GET_SUPPLIERS" ReturnType="Collection(OpPOSModel.SP_GET_SUPPLIERS_Result)">
+            <Parameter Name="SearchFilter" Mode="In" Type="String" />
+            <Parameter Name="IsDel" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GET_EMPLOYEES" ReturnType="Collection(OpPOSModel.SP_GET_EMPLOYEES_Result)">
+            <Parameter Name="SearchFilter" Mode="In" Type="String" />
+            <Parameter Name="IsDel" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GET_HORARY" ReturnType="Collection(OpPOSModel.SP_GET_HORARY_Result)">
+            <Parameter Name="SearchFilter" Mode="In" Type="String" />
+            <Parameter Name="IsDel" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GET_SALARIES" ReturnType="Collection(OpPOSModel.SP_GET_SALARIES_Result)">
+            <Parameter Name="SearchFilter" Mode="In" Type="String" />
+            <Parameter Name="IsDel" Mode="In" Type="Boolean" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="EMPLOYEE_SALARY">
           <Key>
@@ -2330,6 +2370,52 @@
           <Property Type="DateTime" Name="INSERTED_AT" Nullable="false" Precision="23" />
           <Property Type="Boolean" Name="IS_DEL" Nullable="false" />
           <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="SP_GET_SUPPLIERS_Result">
+          <Property Type="String" Name="SUPPLIER_CODE" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="SUPPLIER_NAME" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SUPPLIER_RTN" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="SUPPLIER_PHONE" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SUPPLIER_ADDRESS" Nullable="false" />
+          <Property Type="String" Name="SUPPLIER_EMAIL" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="INSERTED_AT" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="IS_DEL" Nullable="false" />
+          <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="10" />
+          <Property Type="Boolean" Name="SUPPLIER_STATE" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_GET_EMPLOYEES_Result">
+          <Property Type="String" Name="EMPLOYEE_CODE" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="EMPLOYEE_NAME" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EMPLOYEE_LASTNAME" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EMPLOYEE_DNI" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="EMPLOYEE_EMAIL" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EMPLOYEE_PHONE" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="EMPLOYEE_ADDRESS" Nullable="false" MaxLength="256" />
+          <Property Type="Boolean" Name="IS_DEL" Nullable="false" />
+          <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="INSERTED_AT" Nullable="false" Precision="23" />
+          <Property Type="String" Name="DESCRIPTION_JOB_POSITION" Nullable="false" MaxLength="150" />
+          <Property Type="Time" Name="INITIAL_HOUR" Nullable="false" />
+          <Property Type="Time" Name="FINAL_HOUR" Nullable="false" />
+          <Property Type="String" Name="HORARY_DESCRIPTION" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="SP_GET_HORARY_Result">
+          <Property Type="String" Name="HORARY_CODE" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="HORARY_DESCRIPTION" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="IS_DEL" Nullable="false" />
+          <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="INSERTED_AT" Nullable="false" Precision="23" />
+          <Property Type="Time" Name="INITIAL_HOUR" Nullable="false" />
+          <Property Type="Time" Name="FINAL_HOUR" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_GET_SALARIES_Result">
+          <Property Type="String" Name="SALARY_CODE" Nullable="false" MaxLength="10" />
+          <Property Type="Decimal" Name="BASE_SALARY" Nullable="false" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="INCREASE" Nullable="false" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="TOTAL_SALARY" Nullable="false" Precision="12" Scale="2" />
+          <Property Type="DateTime" Name="INSERTED_AT" Nullable="false" Precision="23" />
+          <Property Type="String" Name="EMPLOYEE_NAME" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EMPLOYEE_LASTNAME" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2617,6 +2703,10 @@
           <EntitySetMapping Name="SUPPLIERS">
             <EntityTypeMapping TypeName="OpPOSModel.SUPPLIERS">
               <MappingFragment StoreEntitySet="SUPPLIERS">
+                <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+                <ScalarProperty Name="SUPPLIER_STATE" ColumnName="SUPPLIER_STATE" />
+                <ScalarProperty Name="SUPPLIER_RTN" ColumnName="SUPPLIER_RTN" />
+                <ScalarProperty Name="SUPPLIER_ADDRESS" ColumnName="SUPPLIER_ADDRESS" />
                 <ScalarProperty Name="SUPPLIER_CODE" ColumnName="SUPPLIER_CODE" />
                 <ScalarProperty Name="SUPPLIER_NAME" ColumnName="SUPPLIER_NAME" />
                 <ScalarProperty Name="SUPPLIER_PHONE" ColumnName="SUPPLIER_PHONE" />
@@ -2714,6 +2804,68 @@
                 <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
                 <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GET_SUPPLIERS" FunctionName="OpPOSModel.Store.SP_GET_SUPPLIERS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OpPOSModel.SP_GET_SUPPLIERS_Result">
+                <ScalarProperty Name="SUPPLIER_CODE" ColumnName="SUPPLIER_CODE" />
+                <ScalarProperty Name="SUPPLIER_NAME" ColumnName="SUPPLIER_NAME" />
+                <ScalarProperty Name="SUPPLIER_RTN" ColumnName="SUPPLIER_RTN" />
+                <ScalarProperty Name="SUPPLIER_PHONE" ColumnName="SUPPLIER_PHONE" />
+                <ScalarProperty Name="SUPPLIER_ADDRESS" ColumnName="SUPPLIER_ADDRESS" />
+                <ScalarProperty Name="SUPPLIER_EMAIL" ColumnName="SUPPLIER_EMAIL" />
+                <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+                <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="SUPPLIER_STATE" ColumnName="SUPPLIER_STATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GET_EMPLOYEES" FunctionName="OpPOSModel.Store.SP_GET_EMPLOYEES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OpPOSModel.SP_GET_EMPLOYEES_Result">
+                <ScalarProperty Name="EMPLOYEE_CODE" ColumnName="EMPLOYEE_CODE" />
+                <ScalarProperty Name="EMPLOYEE_NAME" ColumnName="EMPLOYEE_NAME" />
+                <ScalarProperty Name="EMPLOYEE_LASTNAME" ColumnName="EMPLOYEE_LASTNAME" />
+                <ScalarProperty Name="EMPLOYEE_DNI" ColumnName="EMPLOYEE_DNI" />
+                <ScalarProperty Name="EMPLOYEE_EMAIL" ColumnName="EMPLOYEE_EMAIL" />
+                <ScalarProperty Name="EMPLOYEE_PHONE" ColumnName="EMPLOYEE_PHONE" />
+                <ScalarProperty Name="EMPLOYEE_ADDRESS" ColumnName="EMPLOYEE_ADDRESS" />
+                <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+                <ScalarProperty Name="DESCRIPTION_JOB_POSITION" ColumnName="DESCRIPTION_JOB_POSITION" />
+                <ScalarProperty Name="INITIAL_HOUR" ColumnName="INITIAL_HOUR" />
+                <ScalarProperty Name="FINAL_HOUR" ColumnName="FINAL_HOUR" />
+                <ScalarProperty Name="HORARY_DESCRIPTION" ColumnName="HORARY_DESCRIPTION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GET_HORARY" FunctionName="OpPOSModel.Store.SP_GET_HORARY">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OpPOSModel.SP_GET_HORARY_Result">
+                <ScalarProperty Name="HORARY_CODE" ColumnName="HORARY_CODE" />
+                <ScalarProperty Name="HORARY_DESCRIPTION" ColumnName="HORARY_DESCRIPTION" />
+                <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+                <ScalarProperty Name="INITIAL_HOUR" ColumnName="INITIAL_HOUR" />
+                <ScalarProperty Name="FINAL_HOUR" ColumnName="FINAL_HOUR" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GET_SALARIES" FunctionName="OpPOSModel.Store.SP_GET_SALARIES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OpPOSModel.SP_GET_SALARIES_Result">
+                <ScalarProperty Name="SALARY_CODE" ColumnName="SALARY_CODE" />
+                <ScalarProperty Name="BASE_SALARY" ColumnName="BASE_SALARY" />
+                <ScalarProperty Name="INCREASE" ColumnName="INCREASE" />
+                <ScalarProperty Name="TOTAL_SALARY" ColumnName="TOTAL_SALARY" />
+                <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+                <ScalarProperty Name="EMPLOYEE_NAME" ColumnName="EMPLOYEE_NAME" />
+                <ScalarProperty Name="EMPLOYEE_LASTNAME" ColumnName="EMPLOYEE_LASTNAME" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

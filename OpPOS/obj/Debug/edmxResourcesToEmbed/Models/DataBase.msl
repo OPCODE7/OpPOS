@@ -281,6 +281,10 @@
     <EntitySetMapping Name="SUPPLIERS">
       <EntityTypeMapping TypeName="OpPOSModel.SUPPLIERS">
         <MappingFragment StoreEntitySet="SUPPLIERS">
+          <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+          <ScalarProperty Name="SUPPLIER_STATE" ColumnName="SUPPLIER_STATE" />
+          <ScalarProperty Name="SUPPLIER_RTN" ColumnName="SUPPLIER_RTN" />
+          <ScalarProperty Name="SUPPLIER_ADDRESS" ColumnName="SUPPLIER_ADDRESS" />
           <ScalarProperty Name="SUPPLIER_CODE" ColumnName="SUPPLIER_CODE" />
           <ScalarProperty Name="SUPPLIER_NAME" ColumnName="SUPPLIER_NAME" />
           <ScalarProperty Name="SUPPLIER_PHONE" ColumnName="SUPPLIER_PHONE" />
@@ -378,6 +382,22 @@
           <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
           <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
           <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GET_SUPPLIERS" FunctionName="OpPOSModel.Store.SP_GET_SUPPLIERS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OpPOSModel.SP_GET_SUPPLIERS_Result">
+          <ScalarProperty Name="SUPPLIER_CODE" ColumnName="SUPPLIER_CODE" />
+          <ScalarProperty Name="SUPPLIER_NAME" ColumnName="SUPPLIER_NAME" />
+          <ScalarProperty Name="SUPPLIER_RTN" ColumnName="SUPPLIER_RTN" />
+          <ScalarProperty Name="SUPPLIER_PHONE" ColumnName="SUPPLIER_PHONE" />
+          <ScalarProperty Name="SUPPLIER_ADDRESS" ColumnName="SUPPLIER_ADDRESS" />
+          <ScalarProperty Name="SUPPLIER_EMAIL" ColumnName="SUPPLIER_EMAIL" />
+          <ScalarProperty Name="INSERTED_AT" ColumnName="INSERTED_AT" />
+          <ScalarProperty Name="IS_DEL" ColumnName="IS_DEL" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="SUPPLIER_STATE" ColumnName="SUPPLIER_STATE" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

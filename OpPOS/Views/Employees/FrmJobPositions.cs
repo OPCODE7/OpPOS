@@ -118,7 +118,7 @@ namespace OpPOS.Views.Employees
 
             foreach (JOB_POSITIONS j in jobPositions)
             {
-                DgvJobPositions.Rows.Add(j.JOB_POSITION_CODE, j.DESCRIPTION_JOB_POSITION, Convert.ToDateTime(j.INSERTED_AT).ToShortDateString());
+                DgvJobPositions.Rows.Add(j.JOB_POSITION_CODE, j.DESCRIPTION_JOB_POSITION, Convert.ToDateTime(j.INSERTED_AT).ToString("dd/MM/yyyy"));
             }
         }
 

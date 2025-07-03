@@ -35,6 +35,7 @@
             this.BtnInventoryEntries = new System.Windows.Forms.Button();
             this.BtnInventoryExits = new System.Windows.Forms.Button();
             this.BtnSales = new System.Windows.Forms.Button();
+            this.BtnSuppliers = new System.Windows.Forms.Button();
             this.TstPrincipal = new System.Windows.Forms.ToolStrip();
             this.BtnReports = new System.Windows.Forms.ToolStripDropDownButton();
             this.BtnRptBills = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,6 +87,7 @@
             this.PnlAdminSideBar.Controls.Add(this.BtnInventoryEntries);
             this.PnlAdminSideBar.Controls.Add(this.BtnInventoryExits);
             this.PnlAdminSideBar.Controls.Add(this.BtnSales);
+            this.PnlAdminSideBar.Controls.Add(this.BtnSuppliers);
             this.PnlAdminSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlAdminSideBar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.PnlAdminSideBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -148,6 +150,22 @@
             this.BtnSales.Text = "Ventas";
             this.BtnSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSales.UseVisualStyleBackColor = false;
+            // 
+            // BtnSuppliers
+            // 
+            this.BtnSuppliers.BackColor = System.Drawing.Color.Teal;
+            this.BtnSuppliers.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSuppliers.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnSuppliers.Image = ((System.Drawing.Image)(resources.GetObject("BtnSuppliers.Image")));
+            this.BtnSuppliers.Location = new System.Drawing.Point(3, 302);
+            this.BtnSuppliers.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.BtnSuppliers.Name = "BtnSuppliers";
+            this.BtnSuppliers.Size = new System.Drawing.Size(211, 54);
+            this.BtnSuppliers.TabIndex = 10;
+            this.BtnSuppliers.Text = "Proveedores";
+            this.BtnSuppliers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSuppliers.UseVisualStyleBackColor = false;
+            this.BtnSuppliers.Click += new System.EventHandler(this.BtnSuppliers_Click);
             // 
             // TstPrincipal
             // 
@@ -246,7 +264,7 @@
             this.BtnEmployees.BackColor = System.Drawing.Color.Teal;
             this.BtnEmployees.ForeColor = System.Drawing.Color.White;
             this.BtnEmployees.Name = "BtnEmployees";
-            this.BtnEmployees.Size = new System.Drawing.Size(270, 34);
+            this.BtnEmployees.Size = new System.Drawing.Size(208, 34);
             this.BtnEmployees.Text = "Empleados";
             this.BtnEmployees.Click += new System.EventHandler(this.BtnEmployees_Click);
             // 
@@ -255,7 +273,7 @@
             this.BtnHoraries.BackColor = System.Drawing.Color.Teal;
             this.BtnHoraries.ForeColor = System.Drawing.Color.White;
             this.BtnHoraries.Name = "BtnHoraries";
-            this.BtnHoraries.Size = new System.Drawing.Size(270, 34);
+            this.BtnHoraries.Size = new System.Drawing.Size(208, 34);
             this.BtnHoraries.Text = "Horarios";
             this.BtnHoraries.Click += new System.EventHandler(this.BtnHoraries_Click);
             // 
@@ -264,7 +282,7 @@
             this.BtnSalaries.BackColor = System.Drawing.Color.Teal;
             this.BtnSalaries.ForeColor = System.Drawing.Color.White;
             this.BtnSalaries.Name = "BtnSalaries";
-            this.BtnSalaries.Size = new System.Drawing.Size(270, 34);
+            this.BtnSalaries.Size = new System.Drawing.Size(208, 34);
             this.BtnSalaries.Text = "Salarios";
             this.BtnSalaries.Click += new System.EventHandler(this.BtnSalaries_Click);
             // 
@@ -273,7 +291,7 @@
             this.BtnJobPositions.BackColor = System.Drawing.Color.Teal;
             this.BtnJobPositions.ForeColor = System.Drawing.Color.White;
             this.BtnJobPositions.Name = "BtnJobPositions";
-            this.BtnJobPositions.Size = new System.Drawing.Size(270, 34);
+            this.BtnJobPositions.Size = new System.Drawing.Size(208, 34);
             this.BtnJobPositions.Text = "Cargos";
             this.BtnJobPositions.Click += new System.EventHandler(this.BtnJobPositions_Click);
             // 
@@ -579,5 +597,6 @@
         private System.Windows.Forms.ToolStripMenuItem BtnLogBook;
         private System.Windows.Forms.ToolStripMenuItem BtnCardex;
         private System.Windows.Forms.ToolStripMenuItem BtnSalaries;
+        private System.Windows.Forms.Button BtnSuppliers;
     }
 }

@@ -320,6 +320,10 @@
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="INVENTORY_ENTRIES" Relationship="Self.FK_ENTRIES_SUPPLIER" FromRole="SUPPLIERS" ToRole="INVENTORY_ENTRIES" />
     <NavigationProperty Name="USERS" Relationship="Self.FK_SUPPLIERS_USER" FromRole="SUPPLIERS" ToRole="USERS" />
+    <Property Name="SUPPLIER_ADDRESS" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_RTN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_STATE" Type="Boolean" Nullable="false" />
+    <Property Name="IS_DEL" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="SYSTEM_LICENSE">
     <Key>
@@ -1123,6 +1127,10 @@
       <End Role="SALARIES" EntitySet="SALARIES" />
     </AssociationSet>
     <FunctionImport Name="SP_GET_COMPANY_DATA" ReturnType="Collection(OpPOSModel.SP_GET_COMPANY_DATA_Result)" />
+    <FunctionImport Name="SP_GET_SUPPLIERS" ReturnType="Collection(OpPOSModel.SP_GET_SUPPLIERS_Result)">
+      <Parameter Name="SearchFilter" Mode="In" Type="String" />
+      <Parameter Name="IsDel" Mode="In" Type="Boolean" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="EMPLOYEE_SALARY">
     <Key>
@@ -1212,5 +1220,17 @@
     <Property Type="DateTime" Name="INSERTED_AT" Nullable="false" Precision="23" />
     <Property Type="Boolean" Name="IS_DEL" Nullable="false" />
     <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SP_GET_SUPPLIERS_Result">
+    <Property Type="String" Name="SUPPLIER_CODE" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="SUPPLIER_NAME" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="SUPPLIER_RTN" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="SUPPLIER_PHONE" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="SUPPLIER_ADDRESS" Nullable="false" />
+    <Property Type="String" Name="SUPPLIER_EMAIL" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="INSERTED_AT" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="IS_DEL" Nullable="false" />
+    <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="SUPPLIER_STATE" Nullable="false" />
   </ComplexType>
 </Schema>
